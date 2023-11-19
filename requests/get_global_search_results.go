@@ -3,12 +3,14 @@ package requests
 import "github.com/irefoxy/s21client/gql"
 
 type GetGlobalSearchResults_Variables struct {
-	SearchString string   `json:"searchString"`
-	Items        []string `json:"items"`
-	Page         struct {
-		Limit  int `json:"limit"`
-		Offset int `json:"offset"`
-	} `json:"page"`
+	SearchString string                           `json:"searchString"`
+	Items        []string                         `json:"items"`
+	Page         GetGlobalSearchResults_Data_Page `json:"page"`
+}
+
+type GetGlobalSearchResults_Data_Page struct {
+	Limit  int `json:"limit"`
+	Offset int `json:"offset"`
 }
 
 type Profile struct {
@@ -46,76 +48,7 @@ type GetGlobalSearchResults_Data struct {
 
 func (ctx *RequestContext) GetGlobalSearchResults(variables GetGlobalSearchResults_Variables) (GetGlobalSearchResults_Data, error) {
 	request := gql.NewQueryRequest[GetGlobalSearchResults_Variables](
-		`query getGlobalSearchResults($searchString: String!, $items: [SearchItem]!, $page: PagingInput!) {
-            globalSearch {
-                searchByText(searchString: $searchString, items: $items, page: $page) {
-                    profiles {
-                        ...GlobalSearchProfilesSearchResult
-                        __typename
-                    }
-                    projects {
-                        ...GlobalSearchProjectsSearchResult
-                        __typename
-                    }
-                    studentCourses {
-                        ...GlobalSearchCoursesSearchResult
-                        __typename
-                    }
-                    __typename
-                }
-                __typename
-            }
-        }
-        
-        fragment GlobalSearchProfilesSearchResult on ProfilesSearchResult {
-            count
-            profiles {
-                login
-                firstName
-                lastName
-                level
-                avatarUrl
-                school {
-                    shortName
-                    __typename
-                }
-                __typename
-            }
-			__typename
-        }
-        
-        fragment GlobalSearchProjectsSearchResult on ProjectsSearchResult {
-            count
-            projects {
-                studentTaskId
-                status
-                finalPercentage
-                finalPoint
-                project {
-                    goalId
-                    goalName
-                    __typename
-                }
-                executionType
-                __typename
-            }
-        }
-        
-        fragment GlobalSearchCoursesSearchResult on CoursesSearchResult {
-            count
-            courses {
-                goalId
-                name
-                displayedCourseStatus
-                executionType
-                finalPercentage
-                experience
-                courseType
-                localCourseId
-                goalStatus
-                __typename
-            }
-        }`,
+		"query getGlobalSearchResults($searchString: String!, $items: [SearchItem]!, $page: PagingInput!) {\n  globalSearch {\n    searchByText(searchString: $searchString, items: $items, page: $page) {\n      profiles {\n        ...GlobalSearchProfilesSearchResult\n        __typename\n      }\n      projects {\n        ...GlobalSearchProjectsSearchResult\n        __typename\n      }\n      studentCourses {\n        ...GlobalSearchCoursesSearchResult\n        __typename\n      }\n      __typename\n    }\n    __typename\n  }\n}\n\nfragment GlobalSearchProfilesSearchResult on ProfilesSearchResult {\n  count\n  profiles {\n    login\n    firstName\n    lastName\n    level\n    avatarUrl\n    school {\n      shortName\n      __typename\n    }\n    __typename\n  }\n  __typename\n}\n\nfragment GlobalSearchProjectsSearchResult on ProjectsSearchResult {\n  count\n  projects {\n    studentTaskId\n    status\n    finalPercentage\n    finalPoint\n    project {\n      goalId\n      goalName\n      __typename\n    }\n    executionType\n    __typename\n  }\n  __typename\n}\n\nfragment GlobalSearchCoursesSearchResult on CoursesSearchResult {\n  count\n  courses {\n    goalId\n    name\n    displayedCourseStatus\n    executionType\n    finalPercentage\n    experience\n    courseType\n    localCourseId\n    goalStatus\n    __typename\n  }\n  __typename\n}\n",
 		variables,
 	)
 
