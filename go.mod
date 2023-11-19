@@ -1,4 +1,4 @@
-module github.com/s21toolkit/s21client
+module github.com/irefoxy/s21client
 
 go 1.20
 
