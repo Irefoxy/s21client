@@ -1,12 +1,11 @@
 package requests
 
-import "github.com/s21toolkit/s21client/gql"
+import "github.com/irefoxy/s21client/gql"
 
 type PublicProfileGetProjects_Variables struct {
 	StudentID    string `json:"studentId"`
 	StageGroupID string `json:"stageGroupId"`
 }
-
 
 type PublicProfileGetProjects_Data struct {
 	School21 PublicProfileGetProjects_Data_School21 `json:"school21"`
@@ -14,7 +13,7 @@ type PublicProfileGetProjects_Data struct {
 
 type PublicProfileGetProjects_Data_School21 struct {
 	GetStudentProjectsForPublicProfileByStageGroup []PublicProfileGetProjects_Data_GetStudentProjectsForPublicProfileByStageGroup `json:"getStudentProjectsForPublicProfileByStageGroup"`
-	Typename                                       string                                           `json:"__typename"`
+	Typename                                       string                                                                         `json:"__typename"`
 }
 
 type PublicProfileGetProjects_Data_GetStudentProjectsForPublicProfileByStageGroup struct {
@@ -28,7 +27,6 @@ type PublicProfileGetProjects_Data_GetStudentProjectsForPublicProfileByStageGrou
 	AmountReviewedAnswers interface{} `json:"amountReviewedAnswers"`
 	Typename              string      `json:"__typename"`
 }
-
 
 func (ctx *RequestContext) PublicProfileGetProjects(variables PublicProfileGetProjects_Variables) (PublicProfileGetProjects_Data, error) {
 	request := gql.NewQueryRequest[PublicProfileGetProjects_Variables](

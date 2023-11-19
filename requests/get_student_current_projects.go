@@ -1,11 +1,10 @@
 package requests
 
-import "github.com/s21toolkit/s21client/gql"
+import "github.com/irefoxy/s21client/gql"
 
 type GetStudentCurrentProjects_Variables struct {
 	UserID string `json:"userId"`
 }
-
 
 type GetStudentCurrentProjects_Data struct {
 	Student GetStudentCurrentProjects_Data_Student `json:"student"`
@@ -13,7 +12,7 @@ type GetStudentCurrentProjects_Data struct {
 
 type GetStudentCurrentProjects_Data_Student struct {
 	GetStudentCurrentProjects []GetStudentCurrentProjects_Data_GetStudentCurrentProject `json:"getStudentCurrentProjects"`
-	Typename                  string                     `json:"__typename"`
+	Typename                  string                                                    `json:"__typename"`
 }
 
 type GetStudentCurrentProjects_Data_GetStudentCurrentProject struct {
@@ -38,7 +37,6 @@ type GetStudentCurrentProjects_Data_GetStudentCurrentProject struct {
 	LocalCourseID                  *int64      `json:"localCourseId"`
 	Typename                       string      `json:"__typename"`
 }
-
 
 func (ctx *RequestContext) GetStudentCurrentProjects(variables GetStudentCurrentProjects_Variables) (GetStudentCurrentProjects_Data, error) {
 	request := gql.NewQueryRequest[GetStudentCurrentProjects_Variables](

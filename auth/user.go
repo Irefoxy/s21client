@@ -3,7 +3,7 @@ package auth
 import (
 	"context"
 
-	"github.com/s21toolkit/s21client/gql"
+	"github.com/irefoxy/s21client/gql"
 
 	"github.com/go-resty/resty/v2"
 )

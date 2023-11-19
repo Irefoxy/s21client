@@ -1,11 +1,10 @@
 package requests
 
-import "github.com/s21toolkit/s21client/gql"
+import "github.com/irefoxy/s21client/gql"
 
 type GetDismissInfoByStudentId_Variables struct {
 	StudentID string `json:"studentId"`
 }
-
 
 type GetDismissInfoByStudentId_Data struct {
 	School21 GetDismissInfoByStudentId_Data_School21 `json:"school21"`
@@ -15,7 +14,6 @@ type GetDismissInfoByStudentId_Data_School21 struct {
 	GetDismissInfoByStudentID interface{} `json:"getDismissInfoByStudentId"`
 	Typename                  string      `json:"__typename"`
 }
-
 
 func (ctx *RequestContext) GetDismissInfoByStudentId(variables GetDismissInfoByStudentId_Variables) (GetDismissInfoByStudentId_Data, error) {
 	request := gql.NewQueryRequest[GetDismissInfoByStudentId_Variables](

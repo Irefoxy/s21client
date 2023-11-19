@@ -1,10 +1,9 @@
 package requests
 
-import "github.com/s21toolkit/s21client/gql"
+import "github.com/irefoxy/s21client/gql"
 
 type DeadlineReminderGetClosestDeadlinePopup_Variables struct {
 }
-
 
 type DeadlineReminderGetClosestDeadlinePopup_Data struct {
 	Student DeadlineReminderGetClosestDeadlinePopup_Data_Student `json:"student"`
@@ -14,7 +13,6 @@ type DeadlineReminderGetClosestDeadlinePopup_Data_Student struct {
 	GetClosestDeadlinePopup interface{} `json:"getClosestDeadlinePopup"`
 	Typename                string      `json:"__typename"`
 }
-
 
 func (ctx *RequestContext) DeadlineReminderGetClosestDeadlinePopup(variables DeadlineReminderGetClosestDeadlinePopup_Variables) (DeadlineReminderGetClosestDeadlinePopup_Data, error) {
 	request := gql.NewQueryRequest[DeadlineReminderGetClosestDeadlinePopup_Variables](

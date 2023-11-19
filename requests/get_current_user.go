@@ -1,10 +1,9 @@
 package requests
 
-import "github.com/s21toolkit/s21client/gql"
+import "github.com/irefoxy/s21client/gql"
 
 type GetCurrentUser_Variables struct {
 }
-
 
 type GetCurrentUser_Data struct {
 	User    GetCurrentUser_Data_User    `json:"user"`
@@ -13,22 +12,22 @@ type GetCurrentUser_Data struct {
 
 type GetCurrentUser_Data_Student struct {
 	GetExperience GetCurrentUser_Data_GetExperience `json:"getExperience"`
-	Typename      string        `json:"__typename"`
+	Typename      string                            `json:"__typename"`
 }
 
 type GetCurrentUser_Data_GetExperience struct {
-	ID               string `json:"id"`
-	CookiesCount     int64  `json:"cookiesCount"`
-	CodeReviewPoints int64  `json:"codeReviewPoints"`
-	CoinsCount       int64  `json:"coinsCount"`
-	Level            GetCurrentUser_Data_Level  `json:"level"`
-	Typename         string `json:"__typename"`
+	ID               string                    `json:"id"`
+	CookiesCount     int64                     `json:"cookiesCount"`
+	CodeReviewPoints int64                     `json:"codeReviewPoints"`
+	CoinsCount       int64                     `json:"coinsCount"`
+	Level            GetCurrentUser_Data_Level `json:"level"`
+	Typename         string                    `json:"__typename"`
 }
 
 type GetCurrentUser_Data_Level struct {
-	ID       int64  `json:"id"`
-	Range    GetCurrentUser_Data_Range  `json:"range"`
-	Typename string `json:"__typename"`
+	ID       int64                     `json:"id"`
+	Range    GetCurrentUser_Data_Range `json:"range"`
+	Typename string                    `json:"__typename"`
 }
 
 type GetCurrentUser_Data_Range struct {
@@ -39,7 +38,7 @@ type GetCurrentUser_Data_Range struct {
 
 type GetCurrentUser_Data_User struct {
 	GetCurrentUser GetCurrentUser_Data_GetCurrentUser `json:"getCurrentUser"`
-	Typename       string         `json:"__typename"`
+	Typename       string                             `json:"__typename"`
 }
 
 type GetCurrentUser_Data_GetCurrentUser struct {
@@ -52,7 +51,6 @@ type GetCurrentUser_Data_GetCurrentUser struct {
 	CurrentSchoolStudentID string `json:"currentSchoolStudentId"`
 	Typename               string `json:"__typename"`
 }
-
 
 func (ctx *RequestContext) GetCurrentUser(variables GetCurrentUser_Variables) (GetCurrentUser_Data, error) {
 	request := gql.NewQueryRequest[GetCurrentUser_Variables](

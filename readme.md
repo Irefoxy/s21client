@@ -1,11 +1,11 @@
 # s21client 🍻🫃
 
-[![.github/workflows/test.yaml](https://github.com/s21toolkit/s21client/actions/workflows/test.yaml/badge.svg)](https://github.com/s21toolkit/s21client/actions/workflows/test.yaml)
+[![.github/workflows/test.yaml](https://github.com/irefoxy/s21client/actions/workflows/test.yaml/badge.svg)](https://github.com/irefoxy/s21client/actions/workflows/test.yaml)
 
 Клиент для внутреннего GQL API платформы edu.21-school.ru.
 
 ```sh
-go get github.com/s21toolkit/s21client
+go get github.com/irefoxy/s21client
 ```
 
 Пример использования:
@@ -30,7 +30,7 @@ fmt.Println(user)
 
 Методы клиента генерируются автоматически на основе запросов платформы к бекенду.
 
-Для генерации запросов используется [s21auto](https://github.com/s21toolkit/s21auto):
+Для генерации запросов используется [s21auto](https://github.com/irefoxy/s21auto):
 
 ```sh
 s21auto client generate log.har -o s21client/requests

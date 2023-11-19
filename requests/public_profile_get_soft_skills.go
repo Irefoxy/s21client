@@ -1,11 +1,10 @@
 package requests
 
-import "github.com/s21toolkit/s21client/gql"
+import "github.com/irefoxy/s21client/gql"
 
 type PublicProfileGetSoftSkills_Variables struct {
 	StudentID string `json:"studentId"`
 }
-
 
 type PublicProfileGetSoftSkills_Data struct {
 	School21 PublicProfileGetSoftSkills_Data_School21 `json:"school21"`
@@ -14,7 +13,7 @@ type PublicProfileGetSoftSkills_Data struct {
 type PublicProfileGetSoftSkills_Data_School21 struct {
 	GetSoftSkillsByStudentID     []PublicProfileGetSoftSkills_Data_GetSoftSkillsByStudentID   `json:"getSoftSkillsByStudentId"`
 	GetSoftSkillLimitByStudentID PublicProfileGetSoftSkills_Data_GetSoftSkillLimitByStudentID `json:"getSoftSkillLimitByStudentId"`
-	Typename                     string                       `json:"__typename"`
+	Typename                     string                                                       `json:"__typename"`
 }
 
 type PublicProfileGetSoftSkills_Data_GetSoftSkillLimitByStudentID struct {
@@ -30,7 +29,6 @@ type PublicProfileGetSoftSkills_Data_GetSoftSkillsByStudentID struct {
 	HueSaturationLightness string `json:"hueSaturationLightness"`
 	Typename               string `json:"__typename"`
 }
-
 
 func (ctx *RequestContext) PublicProfileGetSoftSkills(variables PublicProfileGetSoftSkills_Variables) (PublicProfileGetSoftSkills_Data, error) {
 	request := gql.NewQueryRequest[PublicProfileGetSoftSkills_Variables](

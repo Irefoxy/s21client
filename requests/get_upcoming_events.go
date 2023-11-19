@@ -1,6 +1,6 @@
 package requests
 
-import "github.com/s21toolkit/s21client/gql"
+import "github.com/irefoxy/s21client/gql"
 
 type GetUpcomingEvents_Variables struct {
 	EventCodes                     []string                         `json:"eventCodes"`

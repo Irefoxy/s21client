@@ -1,11 +1,10 @@
 package requests
 
-import "github.com/s21toolkit/s21client/gql"
+import "github.com/irefoxy/s21client/gql"
 
 type GetCodeReviewMyStudent_Variables struct {
 	StudentGoalID string `json:"studentGoalId"`
 }
-
 
 type GetCodeReviewMyStudent_Data struct {
 	Student GetCodeReviewMyStudent_Data_Student `json:"student"`
@@ -13,13 +12,13 @@ type GetCodeReviewMyStudent_Data struct {
 
 type GetCodeReviewMyStudent_Data_Student struct {
 	GetMyStudentCodeReview *GetCodeReviewMyStudent_Data_GetMyStudentCodeReview `json:"getMyStudentCodeReview"`
-	Typename               string                  `json:"__typename"`
+	Typename               string                                              `json:"__typename"`
 }
 
 type GetCodeReviewMyStudent_Data_GetMyStudentCodeReview struct {
-	ReviewerCommentsCount int64             `json:"reviewerCommentsCount"`
+	ReviewerCommentsCount int64                                         `json:"reviewerCommentsCount"`
 	CodeReviewRounds      []GetCodeReviewMyStudent_Data_CodeReviewRound `json:"codeReviewRounds"`
-	Typename              string            `json:"__typename"`
+	Typename              string                                        `json:"__typename"`
 }
 
 type GetCodeReviewMyStudent_Data_CodeReviewRound struct {
@@ -32,7 +31,6 @@ type GetCodeReviewMyStudent_Data_CodeReviewRound struct {
 	CreateTime          string  `json:"createTime"`
 	Typename            string  `json:"__typename"`
 }
-
 
 func (ctx *RequestContext) GetCodeReviewMyStudent(variables GetCodeReviewMyStudent_Variables) (GetCodeReviewMyStudent_Data, error) {
 	request := gql.NewQueryRequest[GetCodeReviewMyStudent_Variables](

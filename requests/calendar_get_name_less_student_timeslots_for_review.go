@@ -1,6 +1,6 @@
 package requests
 
-import "github.com/s21toolkit/s21client/gql"
+import "github.com/irefoxy/s21client/gql"
 
 type CalendarGetNameLessStudentTimeslotsForReview_Variables struct {
 	TaskID string `json:"taskId"`
@@ -8,21 +8,20 @@ type CalendarGetNameLessStudentTimeslotsForReview_Variables struct {
 	To     string `json:"to"`
 }
 
-
 type CalendarGetNameLessStudentTimeslotsForReview_Data struct {
 	Student CalendarGetNameLessStudentTimeslotsForReview_Data_Student `json:"student"`
 }
 
 type CalendarGetNameLessStudentTimeslotsForReview_Data_Student struct {
 	GetNameLessStudentTimeslotsForReview CalendarGetNameLessStudentTimeslotsForReview_Data_GetNameLessStudentTimeslotsForReview `json:"getNameLessStudentTimeslotsForReview"`
-	Typename                             string                               `json:"__typename"`
+	Typename                             string                                                                                 `json:"__typename"`
 }
 
 type CalendarGetNameLessStudentTimeslotsForReview_Data_GetNameLessStudentTimeslotsForReview struct {
-	CheckDuration      int64              `json:"checkDuration"`
+	CheckDuration      int64                                                                `json:"checkDuration"`
 	ProjectReviewsInfo CalendarGetNameLessStudentTimeslotsForReview_Data_ProjectReviewsInfo `json:"projectReviewsInfo"`
 	TimeSlots          []CalendarGetNameLessStudentTimeslotsForReview_Data_TimeSlot         `json:"timeSlots"`
-	Typename           string             `json:"__typename"`
+	Typename           string                                                               `json:"__typename"`
 }
 
 type CalendarGetNameLessStudentTimeslotsForReview_Data_ProjectReviewsInfo struct {
@@ -40,7 +39,6 @@ type CalendarGetNameLessStudentTimeslotsForReview_Data_TimeSlot struct {
 	StaffSlot       bool     `json:"staffSlot"`
 	Typename        string   `json:"__typename"`
 }
-
 
 func (ctx *RequestContext) CalendarGetNameLessStudentTimeslotsForReview(variables CalendarGetNameLessStudentTimeslotsForReview_Variables) (CalendarGetNameLessStudentTimeslotsForReview_Data, error) {
 	request := gql.NewQueryRequest[CalendarGetNameLessStudentTimeslotsForReview_Variables](

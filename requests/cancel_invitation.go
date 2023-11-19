@@ -1,12 +1,11 @@
 package requests
 
-import "github.com/s21toolkit/s21client/gql"
+import "github.com/irefoxy/s21client/gql"
 
 type CancelInvitation_Variables struct {
 	UserID string `json:"userId"`
 	TeamID string `json:"teamId"`
 }
-
 
 type CancelInvitation_Data struct {
 	Student CancelInvitation_Data_DataStudent `json:"student"`
@@ -14,42 +13,42 @@ type CancelInvitation_Data struct {
 
 type CancelInvitation_Data_DataStudent struct {
 	CancelInvitation CancelInvitation_Data_CancelInvitation `json:"cancelInvitation"`
-	Typename         string           `json:"__typename"`
+	Typename         string                                 `json:"__typename"`
 }
 
 type CancelInvitation_Data_CancelInvitation struct {
 	Student          CancelInvitation_Data_CancelInvitationStudent `json:"student"`
-	InvitationStatus string                  `json:"invitationStatus"`
-	Typename         string                  `json:"__typename"`
+	InvitationStatus string                                        `json:"invitationStatus"`
+	Typename         string                                        `json:"__typename"`
 }
 
 type CancelInvitation_Data_CancelInvitationStudent struct {
-	ID       string `json:"id"`
-	User     CancelInvitation_Data_User   `json:"user"`
-	Typename string `json:"__typename"`
+	ID       string                     `json:"id"`
+	User     CancelInvitation_Data_User `json:"user"`
+	Typename string                     `json:"__typename"`
 }
 
 type CancelInvitation_Data_User struct {
-	ID             string         `json:"id"`
-	Login          string         `json:"login"`
-	AvatarURL      string         `json:"avatarUrl"`
+	ID             string                               `json:"id"`
+	Login          string                               `json:"login"`
+	AvatarURL      string                               `json:"avatarUrl"`
 	UserExperience CancelInvitation_Data_UserExperience `json:"userExperience"`
-	Typename       string         `json:"__typename"`
+	Typename       string                               `json:"__typename"`
 }
 
 type CancelInvitation_Data_UserExperience struct {
-	ID               string `json:"id"`
-	CookiesCount     int64  `json:"cookiesCount"`
-	CodeReviewPoints int64  `json:"codeReviewPoints"`
-	CoinsCount       int64  `json:"coinsCount"`
-	Level            CancelInvitation_Data_Level  `json:"level"`
-	Typename         string `json:"__typename"`
+	ID               string                      `json:"id"`
+	CookiesCount     int64                       `json:"cookiesCount"`
+	CodeReviewPoints int64                       `json:"codeReviewPoints"`
+	CoinsCount       int64                       `json:"coinsCount"`
+	Level            CancelInvitation_Data_Level `json:"level"`
+	Typename         string                      `json:"__typename"`
 }
 
 type CancelInvitation_Data_Level struct {
-	ID       int64  `json:"id"`
-	Range    CancelInvitation_Data_Range  `json:"range"`
-	Typename string `json:"__typename"`
+	ID       int64                       `json:"id"`
+	Range    CancelInvitation_Data_Range `json:"range"`
+	Typename string                      `json:"__typename"`
 }
 
 type CancelInvitation_Data_Range struct {
@@ -57,7 +56,6 @@ type CancelInvitation_Data_Range struct {
 	LevelCode int64  `json:"levelCode"`
 	Typename  string `json:"__typename"`
 }
-
 
 func (ctx *RequestContext) CancelInvitation(variables CancelInvitation_Variables) (CancelInvitation_Data, error) {
 	request := gql.NewQueryRequest[CancelInvitation_Variables](

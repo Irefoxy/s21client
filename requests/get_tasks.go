@@ -1,11 +1,10 @@
 package requests
 
-import "github.com/s21toolkit/s21client/gql"
+import "github.com/irefoxy/s21client/gql"
 
 type GetTasks_Variables struct {
 	IDS []string `json:"ids"`
 }
-
 
 type GetTasks_Data struct {
 	Student GetTasks_Data_Student `json:"student"`
@@ -13,19 +12,19 @@ type GetTasks_Data struct {
 
 type GetTasks_Data_Student struct {
 	GetTasksByIDS []GetTasks_Data_GetTasksByID `json:"getTasksByIds"`
-	Typename      string         `json:"__typename"`
+	Typename      string                       `json:"__typename"`
 }
 
 type GetTasks_Data_GetTasksByID struct {
-	ID       string `json:"id"`
-	Task     GetTasks_Data_Task   `json:"task"`
-	Typename string `json:"__typename"`
+	ID       string             `json:"id"`
+	Task     GetTasks_Data_Task `json:"task"`
+	Typename string             `json:"__typename"`
 }
 
 type GetTasks_Data_Task struct {
-	ID       string  `json:"id"`
+	ID       string                `json:"id"`
 	Content  GetTasks_Data_Content `json:"content"`
-	Typename string  `json:"__typename"`
+	Typename string                `json:"__typename"`
 }
 
 type GetTasks_Data_Content struct {
@@ -33,7 +32,6 @@ type GetTasks_Data_Content struct {
 	Body     string `json:"body"`
 	Typename string `json:"__typename"`
 }
-
 
 func (ctx *RequestContext) GetTasks(variables GetTasks_Variables) (GetTasks_Data, error) {
 	request := gql.NewQueryRequest[GetTasks_Variables](

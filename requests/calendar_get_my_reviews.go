@@ -1,11 +1,10 @@
 package requests
 
-import "github.com/s21toolkit/s21client/gql"
+import "github.com/irefoxy/s21client/gql"
 
 type CalendarGetMyReviews_Variables struct {
 	Limit int64 `json:"limit"`
 }
-
 
 type CalendarGetMyReviews_Data struct {
 	Student CalendarGetMyReviews_Data_Student `json:"student"`
@@ -13,21 +12,21 @@ type CalendarGetMyReviews_Data struct {
 
 type CalendarGetMyReviews_Data_Student struct {
 	GetMyUpcomingBookings []CalendarGetMyReviews_Data_GetMyUpcomingBooking `json:"getMyUpcomingBookings"`
-	Typename              string                 `json:"__typename"`
+	Typename              string                                           `json:"__typename"`
 }
 
 type CalendarGetMyReviews_Data_GetMyUpcomingBooking struct {
-	ID                string             `json:"id"`
-	AnswerID          *string            `json:"answerId"`
+	ID                string                                       `json:"id"`
+	AnswerID          *string                                      `json:"answerId"`
 	EventSlot         CalendarGetMyReviews_Data_EventSlot          `json:"eventSlot"`
 	Task              *CalendarGetMyReviews_Data_Task              `json:"task"`
 	VerifierUser      CalendarGetMyReviews_Data_User               `json:"verifierUser"`
 	VerifiableStudent *CalendarGetMyReviews_Data_VerifiableStudent `json:"verifiableStudent"`
 	Team              *CalendarGetMyReviews_Data_Team              `json:"team"`
-	BookingStatus     string             `json:"bookingStatus"`
-	IsOnline          bool               `json:"isOnline"`
-	VcLinkURL         interface{}        `json:"vcLinkUrl"`
-	Typename          string             `json:"__typename"`
+	BookingStatus     string                                       `json:"bookingStatus"`
+	IsOnline          bool                                         `json:"isOnline"`
+	VcLinkURL         interface{}                                  `json:"vcLinkUrl"`
+	Typename          string                                       `json:"__typename"`
 }
 
 type CalendarGetMyReviews_Data_EventSlot struct {
@@ -38,13 +37,13 @@ type CalendarGetMyReviews_Data_EventSlot struct {
 }
 
 type CalendarGetMyReviews_Data_Task struct {
-	ID                              string                          `json:"id"`
-	Title                           string                          `json:"title"`
-	AssignmentType                  string                          `json:"assignmentType"`
-	GoalID                          string                          `json:"goalId"`
-	GoalName                        string                          `json:"goalName"`
+	ID                              string                                                    `json:"id"`
+	Title                           string                                                    `json:"title"`
+	AssignmentType                  string                                                    `json:"assignmentType"`
+	GoalID                          string                                                    `json:"goalId"`
+	GoalName                        string                                                    `json:"goalName"`
 	StudentTaskAdditionalAttributes CalendarGetMyReviews_Data_StudentTaskAdditionalAttributes `json:"studentTaskAdditionalAttributes"`
-	Typename                        string                          `json:"__typename"`
+	Typename                        string                                                    `json:"__typename"`
 }
 
 type CalendarGetMyReviews_Data_StudentTaskAdditionalAttributes struct {
@@ -53,36 +52,36 @@ type CalendarGetMyReviews_Data_StudentTaskAdditionalAttributes struct {
 }
 
 type CalendarGetMyReviews_Data_Team struct {
-	ID                 string        `json:"id"`
-	TeamLead           CalendarGetMyReviews_Data_TeamLead      `json:"teamLead"`
-	Members            []CalendarGetMyReviews_Data_TeamLead    `json:"members"`
-	InvitedUsers       []interface{} `json:"invitedUsers"`
-	TeamName           string        `json:"teamName"`
-	TeamStatus         string        `json:"teamStatus"`
-	MinTeamMemberCount int64         `json:"minTeamMemberCount"`
-	MaxTeamMemberCount int64         `json:"maxTeamMemberCount"`
-	Typename           string        `json:"__typename"`
+	ID                 string                               `json:"id"`
+	TeamLead           CalendarGetMyReviews_Data_TeamLead   `json:"teamLead"`
+	Members            []CalendarGetMyReviews_Data_TeamLead `json:"members"`
+	InvitedUsers       []interface{}                        `json:"invitedUsers"`
+	TeamName           string                               `json:"teamName"`
+	TeamStatus         string                               `json:"teamStatus"`
+	MinTeamMemberCount int64                                `json:"minTeamMemberCount"`
+	MaxTeamMemberCount int64                                `json:"maxTeamMemberCount"`
+	Typename           string                               `json:"__typename"`
 }
 
 type CalendarGetMyReviews_Data_TeamLead struct {
-	ID             string                 `json:"id"`
-	AvatarURL      string                 `json:"avatarUrl"`
-	Login          string                 `json:"login"`
+	ID             string                                           `json:"id"`
+	AvatarURL      string                                           `json:"avatarUrl"`
+	Login          string                                           `json:"login"`
 	UserExperience CalendarGetMyReviews_Data_TeamLeadUserExperience `json:"userExperience"`
-	Typename       string                 `json:"__typename"`
+	Typename       string                                           `json:"__typename"`
 }
 
 type CalendarGetMyReviews_Data_TeamLeadUserExperience struct {
-	Level            CalendarGetMyReviews_Data_Level  `json:"level"`
-	CookiesCount     int64  `json:"cookiesCount"`
-	CodeReviewPoints int64  `json:"codeReviewPoints"`
-	Typename         string `json:"__typename"`
+	Level            CalendarGetMyReviews_Data_Level `json:"level"`
+	CookiesCount     int64                           `json:"cookiesCount"`
+	CodeReviewPoints int64                           `json:"codeReviewPoints"`
+	Typename         string                          `json:"__typename"`
 }
 
 type CalendarGetMyReviews_Data_Level struct {
-	ID       int64  `json:"id"`
-	Range    CalendarGetMyReviews_Data_Range  `json:"range"`
-	Typename string `json:"__typename"`
+	ID       int64                           `json:"id"`
+	Range    CalendarGetMyReviews_Data_Range `json:"range"`
+	Typename string                          `json:"__typename"`
 }
 
 type CalendarGetMyReviews_Data_Range struct {
@@ -91,24 +90,23 @@ type CalendarGetMyReviews_Data_Range struct {
 }
 
 type CalendarGetMyReviews_Data_VerifiableStudent struct {
-	ID       string `json:"id"`
-	User     CalendarGetMyReviews_Data_User   `json:"user"`
-	Typename string `json:"__typename"`
+	ID       string                         `json:"id"`
+	User     CalendarGetMyReviews_Data_User `json:"user"`
+	Typename string                         `json:"__typename"`
 }
 
 type CalendarGetMyReviews_Data_User struct {
-	ID             string                     `json:"id"`
-	Login          string                     `json:"login"`
-	AvatarURL      string                     `json:"avatarUrl"`
+	ID             string                                               `json:"id"`
+	Login          string                                               `json:"login"`
+	AvatarURL      string                                               `json:"avatarUrl"`
 	UserExperience CalendarGetMyReviews_Data_VerifierUserUserExperience `json:"userExperience"`
-	Typename       string                     `json:"__typename"`
+	Typename       string                                               `json:"__typename"`
 }
 
 type CalendarGetMyReviews_Data_VerifierUserUserExperience struct {
-	Level    CalendarGetMyReviews_Data_Level  `json:"level"`
-	Typename string `json:"__typename"`
+	Level    CalendarGetMyReviews_Data_Level `json:"level"`
+	Typename string                          `json:"__typename"`
 }
-
 
 func (ctx *RequestContext) CalendarGetMyReviews(variables CalendarGetMyReviews_Variables) (CalendarGetMyReviews_Data, error) {
 	request := gql.NewQueryRequest[CalendarGetMyReviews_Variables](

@@ -1,6 +1,6 @@
 package requests
 
-import "github.com/s21toolkit/s21client/gql"
+import "github.com/irefoxy/s21client/gql"
 
 type GetUserNotifications_Variables struct {
 	Paging GetUserNotifications_Variables_Paging `json:"paging"`
@@ -11,21 +11,20 @@ type GetUserNotifications_Variables_Paging struct {
 	Limit  int64 `json:"limit"`
 }
 
-
 type GetUserNotifications_Data struct {
 	Student GetUserNotifications_Data_Student `json:"student"`
 }
 
 type GetUserNotifications_Data_Student struct {
 	GetS21Notifications GetUserNotifications_Data_GetS21Notifications `json:"getS21Notifications"`
-	Typename            string              `json:"__typename"`
+	Typename            string                                        `json:"__typename"`
 }
 
 type GetUserNotifications_Data_GetS21Notifications struct {
 	Notifications []GetUserNotifications_Data_Notification `json:"notifications"`
-	TotalCount    int64          `json:"totalCount"`
-	GroupNames    []string       `json:"groupNames"`
-	Typename      string         `json:"__typename"`
+	TotalCount    int64                                    `json:"totalCount"`
+	GroupNames    []string                                 `json:"groupNames"`
+	Typename      string                                   `json:"__typename"`
 }
 
 type GetUserNotifications_Data_Notification struct {
@@ -38,7 +37,6 @@ type GetUserNotifications_Data_Notification struct {
 	GroupName         string `json:"groupName"`
 	Typename          string `json:"__typename"`
 }
-
 
 func (ctx *RequestContext) GetUserNotifications(variables GetUserNotifications_Variables) (GetUserNotifications_Data, error) {
 	request := gql.NewQueryRequest[GetUserNotifications_Variables](

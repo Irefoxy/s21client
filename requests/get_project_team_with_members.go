@@ -1,11 +1,10 @@
 package requests
 
-import "github.com/s21toolkit/s21client/gql"
+import "github.com/irefoxy/s21client/gql"
 
 type GetProjectTeamWithMembers_Variables struct {
 	GoalID string `json:"goalId"`
 }
-
 
 type GetProjectTeamWithMembers_Data struct {
 	Student GetProjectTeamWithMembers_Data_DataStudent `json:"student"`
@@ -13,44 +12,44 @@ type GetProjectTeamWithMembers_Data struct {
 
 type GetProjectTeamWithMembers_Data_DataStudent struct {
 	GetProjectTeamWithMembers GetProjectTeamWithMembers_Data_GetProjectTeamWithMembers `json:"getProjectTeamWithMembers"`
-	Typename                  string                    `json:"__typename"`
+	Typename                  string                                                   `json:"__typename"`
 }
 
 type GetProjectTeamWithMembers_Data_GetProjectTeamWithMembers struct {
 	TeamWithMembers GetProjectTeamWithMembers_Data_TeamWithMembers  `json:"teamWithMembers"`
 	InvitedStudents []GetProjectTeamWithMembers_Data_InvitedStudent `json:"invitedStudents"`
-	Typename        string           `json:"__typename"`
+	Typename        string                                          `json:"__typename"`
 }
 
 type GetProjectTeamWithMembers_Data_InvitedStudent struct {
 	Student  GetProjectTeamWithMembers_Data_InvitedStudentStudent `json:"student"`
-	Typename string                `json:"__typename"`
+	Typename string                                               `json:"__typename"`
 }
 
 type GetProjectTeamWithMembers_Data_InvitedStudentStudent struct {
-	User     GetProjectTeamWithMembers_Data_User   `json:"user"`
-	Typename string `json:"__typename"`
+	User     GetProjectTeamWithMembers_Data_User `json:"user"`
+	Typename string                              `json:"__typename"`
 }
 
 type GetProjectTeamWithMembers_Data_User struct {
-	ID             string         `json:"id"`
-	AvatarURL      string         `json:"avatarUrl"`
-	Login          string         `json:"login"`
+	ID             string                                        `json:"id"`
+	AvatarURL      string                                        `json:"avatarUrl"`
+	Login          string                                        `json:"login"`
 	UserExperience GetProjectTeamWithMembers_Data_UserExperience `json:"userExperience"`
-	Typename       string         `json:"__typename"`
+	Typename       string                                        `json:"__typename"`
 }
 
 type GetProjectTeamWithMembers_Data_UserExperience struct {
-	Level            GetProjectTeamWithMembers_Data_Level  `json:"level"`
-	CookiesCount     int64  `json:"cookiesCount"`
-	CodeReviewPoints int64  `json:"codeReviewPoints"`
-	Typename         string `json:"__typename"`
+	Level            GetProjectTeamWithMembers_Data_Level `json:"level"`
+	CookiesCount     int64                                `json:"cookiesCount"`
+	CodeReviewPoints int64                                `json:"codeReviewPoints"`
+	Typename         string                               `json:"__typename"`
 }
 
 type GetProjectTeamWithMembers_Data_Level struct {
-	ID       int64  `json:"id"`
-	Range    GetProjectTeamWithMembers_Data_Range  `json:"range"`
-	Typename string `json:"__typename"`
+	ID       int64                                `json:"id"`
+	Range    GetProjectTeamWithMembers_Data_Range `json:"range"`
+	Typename string                               `json:"__typename"`
 }
 
 type GetProjectTeamWithMembers_Data_Range struct {
@@ -61,13 +60,13 @@ type GetProjectTeamWithMembers_Data_Range struct {
 type GetProjectTeamWithMembers_Data_TeamWithMembers struct {
 	Team     GetProjectTeamWithMembers_Data_Team     `json:"team"`
 	Members  []GetProjectTeamWithMembers_Data_Member `json:"members"`
-	Typename string   `json:"__typename"`
+	Typename string                                  `json:"__typename"`
 }
 
 type GetProjectTeamWithMembers_Data_Member struct {
-	Role     string `json:"role"`
-	User     GetProjectTeamWithMembers_Data_User   `json:"user"`
-	Typename string `json:"__typename"`
+	Role     string                              `json:"role"`
+	User     GetProjectTeamWithMembers_Data_User `json:"user"`
+	Typename string                              `json:"__typename"`
 }
 
 type GetProjectTeamWithMembers_Data_Team struct {
@@ -78,7 +77,6 @@ type GetProjectTeamWithMembers_Data_Team struct {
 	MaxTeamMemberCount int64  `json:"maxTeamMemberCount"`
 	Typename           string `json:"__typename"`
 }
-
 
 func (ctx *RequestContext) GetProjectTeamWithMembers(variables GetProjectTeamWithMembers_Variables) (GetProjectTeamWithMembers_Data, error) {
 	request := gql.NewQueryRequest[GetProjectTeamWithMembers_Variables](

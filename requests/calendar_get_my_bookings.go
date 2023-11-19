@@ -1,12 +1,11 @@
 package requests
 
-import "github.com/s21toolkit/s21client/gql"
+import "github.com/irefoxy/s21client/gql"
 
 type CalendarGetMyBookings_Variables struct {
 	From string `json:"from"`
 	To   string `json:"to"`
 }
-
 
 type CalendarGetMyBookings_Data struct {
 	Student CalendarGetMyBookings_Data_Student `json:"student"`
@@ -14,30 +13,30 @@ type CalendarGetMyBookings_Data struct {
 
 type CalendarGetMyBookings_Data_Student struct {
 	GetMyCalendarBookings []CalendarGetMyBookings_Data_GetMyCalendarBooking `json:"getMyCalendarBookings"`
-	Typename              string                 `json:"__typename"`
+	Typename              string                                            `json:"__typename"`
 }
 
 type CalendarGetMyBookings_Data_GetMyCalendarBooking struct {
-	ID                string            `json:"id"`
-	AnswerID          string            `json:"answerId"`
-	EventSlotID       string            `json:"eventSlotId"`
+	ID                string                                       `json:"id"`
+	AnswerID          string                                       `json:"answerId"`
+	EventSlotID       string                                       `json:"eventSlotId"`
 	Task              CalendarGetMyBookings_Data_Task              `json:"task"`
 	EventSlot         CalendarGetMyBookings_Data_EventSlot         `json:"eventSlot"`
 	VerifierUser      CalendarGetMyBookings_Data_User              `json:"verifierUser"`
 	VerifiableStudent CalendarGetMyBookings_Data_VerifiableStudent `json:"verifiableStudent"`
-	BookingStatus     string            `json:"bookingStatus"`
-	Team              interface{}       `json:"team"`
-	IsOnline          bool              `json:"isOnline"`
-	VcLinkURL         interface{}       `json:"vcLinkUrl"`
-	Typename          string            `json:"__typename"`
+	BookingStatus     string                                       `json:"bookingStatus"`
+	Team              interface{}                                  `json:"team"`
+	IsOnline          bool                                         `json:"isOnline"`
+	VcLinkURL         interface{}                                  `json:"vcLinkUrl"`
+	Typename          string                                       `json:"__typename"`
 }
 
 type CalendarGetMyBookings_Data_EventSlot struct {
-	ID       string `json:"id"`
-	Start    string `json:"start"`
-	End      string `json:"end"`
-	Event    CalendarGetMyBookings_Data_Event  `json:"event"`
-	Typename string `json:"__typename"`
+	ID       string                           `json:"id"`
+	Start    string                           `json:"start"`
+	End      string                           `json:"end"`
+	Event    CalendarGetMyBookings_Data_Event `json:"event"`
+	Typename string                           `json:"__typename"`
 }
 
 type CalendarGetMyBookings_Data_Event struct {
@@ -46,12 +45,12 @@ type CalendarGetMyBookings_Data_Event struct {
 }
 
 type CalendarGetMyBookings_Data_Task struct {
-	ID                              string                          `json:"id"`
-	GoalID                          string                          `json:"goalId"`
-	GoalName                        string                          `json:"goalName"`
+	ID                              string                                                     `json:"id"`
+	GoalID                          string                                                     `json:"goalId"`
+	GoalName                        string                                                     `json:"goalName"`
 	StudentTaskAdditionalAttributes CalendarGetMyBookings_Data_StudentTaskAdditionalAttributes `json:"studentTaskAdditionalAttributes"`
-	AssignmentType                  string                          `json:"assignmentType"`
-	Typename                        string                          `json:"__typename"`
+	AssignmentType                  string                                                     `json:"assignmentType"`
+	Typename                        string                                                     `json:"__typename"`
 }
 
 type CalendarGetMyBookings_Data_StudentTaskAdditionalAttributes struct {
@@ -60,9 +59,9 @@ type CalendarGetMyBookings_Data_StudentTaskAdditionalAttributes struct {
 }
 
 type CalendarGetMyBookings_Data_VerifiableStudent struct {
-	ID       string `json:"id"`
-	User     CalendarGetMyBookings_Data_User   `json:"user"`
-	Typename string `json:"__typename"`
+	ID       string                          `json:"id"`
+	User     CalendarGetMyBookings_Data_User `json:"user"`
+	Typename string                          `json:"__typename"`
 }
 
 type CalendarGetMyBookings_Data_User struct {
@@ -70,7 +69,6 @@ type CalendarGetMyBookings_Data_User struct {
 	Login    string `json:"login"`
 	Typename string `json:"__typename"`
 }
-
 
 func (ctx *RequestContext) CalendarGetMyBookings(variables CalendarGetMyBookings_Variables) (CalendarGetMyBookings_Data, error) {
 	request := gql.NewQueryRequest[CalendarGetMyBookings_Variables](

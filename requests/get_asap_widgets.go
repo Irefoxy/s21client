@@ -1,10 +1,9 @@
 package requests
 
-import "github.com/s21toolkit/s21client/gql"
+import "github.com/irefoxy/s21client/gql"
 
 type GetAsapWidgets_Variables struct {
 }
-
 
 type GetAsapWidgets_Data struct {
 	Student GetAsapWidgets_Data_Student `json:"student"`
@@ -12,12 +11,12 @@ type GetAsapWidgets_Data struct {
 
 type GetAsapWidgets_Data_Student struct {
 	GetAsapWidgetList GetAsapWidgets_Data_GetAsapWidgetList `json:"getAsapWidgetList"`
-	Typename          string            `json:"__typename"`
+	Typename          string                                `json:"__typename"`
 }
 
 type GetAsapWidgets_Data_GetAsapWidgetList struct {
 	WidgetList []GetAsapWidgets_Data_WidgetList `json:"widgetList"`
-	Typename   string       `json:"__typename"`
+	Typename   string                           `json:"__typename"`
 }
 
 type GetAsapWidgets_Data_WidgetList struct {
@@ -34,7 +33,6 @@ type GetAsapWidgets_Data_WidgetList struct {
 	ADTWidgetID    int64       `json:"adtWidgetId"`
 	Typename       string      `json:"__typename"`
 }
-
 
 func (ctx *RequestContext) GetAsapWidgets(variables GetAsapWidgets_Variables) (GetAsapWidgets_Data, error) {
 	request := gql.NewQueryRequest[GetAsapWidgets_Variables](

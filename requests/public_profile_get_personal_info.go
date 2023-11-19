@@ -1,6 +1,6 @@
 package requests
 
-import "github.com/s21toolkit/s21client/gql"
+import "github.com/irefoxy/s21client/gql"
 
 type PublicProfileGetPersonalInfo_Variables struct {
 	UserID    string `json:"userId"`
@@ -9,21 +9,20 @@ type PublicProfileGetPersonalInfo_Variables struct {
 	Login     string `json:"login"`
 }
 
-
 type PublicProfileGetPersonalInfo_Data struct {
 	Student PublicProfileGetPersonalInfo_Data_Student `json:"student"`
 	User    PublicProfileGetPersonalInfo_Data_User    `json:"user"`
 }
 
 type PublicProfileGetPersonalInfo_Data_Student struct {
-	GetAvatarByUserID                 string                            `json:"getAvatarByUserId"`
+	GetAvatarByUserID                 string                                                              `json:"getAvatarByUserId"`
 	GetStageGroupS21PublicProfile     PublicProfileGetPersonalInfo_Data_GetStageGroupS21PublicProfile     `json:"getStageGroupS21PublicProfile"`
 	GetExperiencePublicProfile        PublicProfileGetPersonalInfo_Data_GetExperiencePublicProfile        `json:"getExperiencePublicProfile"`
-	GetEmailbyUserID                  string                            `json:"getEmailbyUserId"`
+	GetEmailbyUserID                  string                                                              `json:"getEmailbyUserId"`
 	GetWorkstationByLogin             *PublicProfileGetPersonalInfo_Data_GetWorkstationByLogin            `json:"getWorkstationByLogin"`
 	GetClassRoomByLogin               *PublicProfileGetPersonalInfo_Data_GetClassRoomByLogin              `json:"getClassRoomByLogin"`
 	GetFeedbackStatisticsAverageScore PublicProfileGetPersonalInfo_Data_GetFeedbackStatisticsAverageScore `json:"getFeedbackStatisticsAverageScore"`
-	Typename                          string                            `json:"__typename"`
+	Typename                          string                                                              `json:"__typename"`
 }
 
 type PublicProfileGetPersonalInfo_Data_GetClassRoomByLogin struct {
@@ -34,18 +33,18 @@ type PublicProfileGetPersonalInfo_Data_GetClassRoomByLogin struct {
 }
 
 type PublicProfileGetPersonalInfo_Data_GetExperiencePublicProfile struct {
-	Value            int64  `json:"value"`
-	Level            PublicProfileGetPersonalInfo_Data_Level  `json:"level"`
-	CookiesCount     int64  `json:"cookiesCount"`
-	CoinsCount       int64  `json:"coinsCount"`
-	CodeReviewPoints int64  `json:"codeReviewPoints"`
-	Typename         string `json:"__typename"`
+	Value            int64                                   `json:"value"`
+	Level            PublicProfileGetPersonalInfo_Data_Level `json:"level"`
+	CookiesCount     int64                                   `json:"cookiesCount"`
+	CoinsCount       int64                                   `json:"coinsCount"`
+	CodeReviewPoints int64                                   `json:"codeReviewPoints"`
+	Typename         string                                  `json:"__typename"`
 }
 
 type PublicProfileGetPersonalInfo_Data_Level struct {
-	LevelCode int64  `json:"levelCode"`
-	Range     PublicProfileGetPersonalInfo_Data_Range  `json:"range"`
-	Typename  string `json:"__typename"`
+	LevelCode int64                                   `json:"levelCode"`
+	Range     PublicProfileGetPersonalInfo_Data_Range `json:"range"`
+	Typename  string                                  `json:"__typename"`
 }
 
 type PublicProfileGetPersonalInfo_Data_Range struct {
@@ -55,9 +54,9 @@ type PublicProfileGetPersonalInfo_Data_Range struct {
 }
 
 type PublicProfileGetPersonalInfo_Data_GetFeedbackStatisticsAverageScore struct {
-	CountFeedback        int64                  `json:"countFeedback"`
+	CountFeedback        int64                                                    `json:"countFeedback"`
 	FeedbackAverageScore []PublicProfileGetPersonalInfo_Data_FeedbackAverageScore `json:"feedbackAverageScore"`
-	Typename             string                 `json:"__typename"`
+	Typename             string                                                   `json:"__typename"`
 }
 
 type PublicProfileGetPersonalInfo_Data_FeedbackAverageScore struct {
@@ -84,7 +83,7 @@ type PublicProfileGetPersonalInfo_Data_GetWorkstationByLogin struct {
 
 type PublicProfileGetPersonalInfo_Data_User struct {
 	GetSchool PublicProfileGetPersonalInfo_Data_GetSchool `json:"getSchool"`
-	Typename  string    `json:"__typename"`
+	Typename  string                                      `json:"__typename"`
 }
 
 type PublicProfileGetPersonalInfo_Data_GetSchool struct {
@@ -94,7 +93,6 @@ type PublicProfileGetPersonalInfo_Data_GetSchool struct {
 	Address   string `json:"address"`
 	Typename  string `json:"__typename"`
 }
-
 
 func (ctx *RequestContext) PublicProfileGetPersonalInfo(variables PublicProfileGetPersonalInfo_Variables) (PublicProfileGetPersonalInfo_Data, error) {
 	request := gql.NewQueryRequest[PublicProfileGetPersonalInfo_Variables](

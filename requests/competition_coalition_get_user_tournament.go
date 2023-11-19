@@ -1,10 +1,9 @@
 package requests
 
-import "github.com/s21toolkit/s21client/gql"
+import "github.com/irefoxy/s21client/gql"
 
 type CompetitionCoalitionGetUserTournament_Variables struct {
 }
-
 
 type CompetitionCoalitionGetUserTournament_Data struct {
 	Student CompetitionCoalitionGetUserTournament_Data_Student `json:"student"`
@@ -12,37 +11,37 @@ type CompetitionCoalitionGetUserTournament_Data struct {
 
 type CompetitionCoalitionGetUserTournament_Data_Student struct {
 	GetUserTournamentWidget CompetitionCoalitionGetUserTournament_Data_GetUserTournamentWidget `json:"getUserTournamentWidget"`
-	Typename                string                  `json:"__typename"`
+	Typename                string                                                             `json:"__typename"`
 }
 
 type CompetitionCoalitionGetUserTournament_Data_GetUserTournamentWidget struct {
 	CoalitionMember      CompetitionCoalitionGetUserTournament_Data_CoalitionMember      `json:"coalitionMember"`
 	LastTournamentResult CompetitionCoalitionGetUserTournament_Data_LastTournamentResult `json:"lastTournamentResult"`
-	Typename             string               `json:"__typename"`
+	Typename             string                                                          `json:"__typename"`
 }
 
 type CompetitionCoalitionGetUserTournament_Data_CoalitionMember struct {
 	Coalition CompetitionCoalitionGetUserTournament_Data_Coalition `json:"coalition"`
-	Typename  string    `json:"__typename"`
+	Typename  string                                               `json:"__typename"`
 }
 
 type CompetitionCoalitionGetUserTournament_Data_Coalition struct {
-	ID                string            `json:"id"`
-	Name              string            `json:"name"`
-	AvatarURL         string            `json:"avatarUrl"`
-	BackgroundURL     string            `json:"backgroundUrl"`
-	BackgroundURLBig  string            `json:"backgroundUrlBig"`
-	MemberCount       int64             `json:"memberCount"`
-	Color             string            `json:"color"`
+	ID                string                                                       `json:"id"`
+	Name              string                                                       `json:"name"`
+	AvatarURL         string                                                       `json:"avatarUrl"`
+	BackgroundURL     string                                                       `json:"backgroundUrl"`
+	BackgroundURLBig  string                                                       `json:"backgroundUrlBig"`
+	MemberCount       int64                                                        `json:"memberCount"`
+	Color             string                                                       `json:"color"`
 	CurrentTournament CompetitionCoalitionGetUserTournament_Data_CurrentTournament `json:"currentTournament"`
 	MasterUser        CompetitionCoalitionGetUserTournament_Data_MasterUser        `json:"masterUser"`
-	Typename          string            `json:"__typename"`
+	Typename          string                                                       `json:"__typename"`
 }
 
 type CompetitionCoalitionGetUserTournament_Data_CurrentTournament struct {
-	Points     int64      `json:"points"`
+	Points     int64                                                 `json:"points"`
 	Tournament CompetitionCoalitionGetUserTournament_Data_Tournament `json:"tournament"`
-	Typename   string     `json:"__typename"`
+	Typename   string                                                `json:"__typename"`
 }
 
 type CompetitionCoalitionGetUserTournament_Data_Tournament struct {
@@ -62,7 +61,6 @@ type CompetitionCoalitionGetUserTournament_Data_LastTournamentResult struct {
 	ID       string `json:"id"`
 	Typename string `json:"__typename"`
 }
-
 
 func (ctx *RequestContext) CompetitionCoalitionGetUserTournament(variables CompetitionCoalitionGetUserTournament_Variables) (CompetitionCoalitionGetUserTournament_Data, error) {
 	request := gql.NewQueryRequest[CompetitionCoalitionGetUserTournament_Variables](

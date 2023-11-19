@@ -1,10 +1,9 @@
 package requests
 
-import "github.com/s21toolkit/s21client/gql"
+import "github.com/irefoxy/s21client/gql"
 
 type DeadlinesGetStudentData_Variables struct {
 }
-
 
 type DeadlinesGetStudentData_Data struct {
 	Student DeadlinesGetStudentData_Data_Student `json:"student"`
@@ -14,20 +13,20 @@ type DeadlinesGetStudentData_Data_Student struct {
 	GetStudentProfile    DeadlinesGetStudentData_Data_GetStudentProfile      `json:"getStudentProfile"`
 	GetExperience        DeadlinesGetStudentData_Data_GetExperience          `json:"getExperience"`
 	GetExperienceHistory []DeadlinesGetStudentData_Data_GetExperienceHistory `json:"getExperienceHistory"`
-	Typename             string                 `json:"__typename"`
+	Typename             string                                              `json:"__typename"`
 }
 
 type DeadlinesGetStudentData_Data_GetExperience struct {
-	ID       string `json:"id"`
-	Value    int64  `json:"value"`
-	Level    DeadlinesGetStudentData_Data_Level  `json:"level"`
-	Typename string `json:"__typename"`
+	ID       string                             `json:"id"`
+	Value    int64                              `json:"value"`
+	Level    DeadlinesGetStudentData_Data_Level `json:"level"`
+	Typename string                             `json:"__typename"`
 }
 
 type DeadlinesGetStudentData_Data_Level struct {
-	ID       int64  `json:"id"`
-	Range    DeadlinesGetStudentData_Data_Range  `json:"range"`
-	Typename string `json:"__typename"`
+	ID       int64                              `json:"id"`
+	Range    DeadlinesGetStudentData_Data_Range `json:"range"`
+	Typename string                             `json:"__typename"`
 }
 
 type DeadlinesGetStudentData_Data_Range struct {
@@ -46,8 +45,8 @@ type DeadlinesGetStudentData_Data_GetExperienceHistory struct {
 }
 
 type DeadlinesGetStudentData_Data_GetStudentProfile struct {
-	User     DeadlinesGetStudentData_Data_User   `json:"user"`
-	Typename string `json:"__typename"`
+	User     DeadlinesGetStudentData_Data_User `json:"user"`
+	Typename string                            `json:"__typename"`
 }
 
 type DeadlinesGetStudentData_Data_User struct {
@@ -58,7 +57,6 @@ type DeadlinesGetStudentData_Data_User struct {
 	LastName   string `json:"lastName"`
 	Typename   string `json:"__typename"`
 }
-
 
 func (ctx *RequestContext) DeadlinesGetStudentData(variables DeadlinesGetStudentData_Variables) (DeadlinesGetStudentData_Data, error) {
 	request := gql.NewQueryRequest[DeadlinesGetStudentData_Variables](

@@ -1,12 +1,11 @@
 package requests
 
-import "github.com/s21toolkit/s21client/gql"
+import "github.com/irefoxy/s21client/gql"
 
 type GetProjectAttemptEvaluationsInfo_Variables struct {
 	GoalID    string `json:"goalId"`
 	StudentID string `json:"studentId"`
 }
-
 
 type GetProjectAttemptEvaluationsInfo_Data struct {
 	School21 GetProjectAttemptEvaluationsInfo_Data_School21 `json:"school21"`
@@ -14,19 +13,19 @@ type GetProjectAttemptEvaluationsInfo_Data struct {
 
 type GetProjectAttemptEvaluationsInfo_Data_School21 struct {
 	GetProjectAttemptEvaluationsInfoV1 []GetProjectAttemptEvaluationsInfo_Data_GetProjectAttemptEvaluationsInfoV1 `json:"getProjectAttemptEvaluationsInfo_V1"`
-	Typename                           string                               `json:"__typename"`
+	Typename                           string                                                                     `json:"__typename"`
 }
 
 type GetProjectAttemptEvaluationsInfo_Data_GetProjectAttemptEvaluationsInfoV1 struct {
-	StudentAnswerID      *string        `json:"studentAnswerId"`
-	StudentGoalAttemptID string         `json:"studentGoalAttemptId"`
-	AttemptStatus        *string        `json:"attemptStatus,omitempty"`
+	StudentAnswerID      *string                                              `json:"studentAnswerId"`
+	StudentGoalAttemptID string                                               `json:"studentGoalAttemptId"`
+	AttemptStatus        *string                                              `json:"attemptStatus,omitempty"`
 	AttemptResult        *GetProjectAttemptEvaluationsInfo_Data_AttemptResult `json:"attemptResult"`
-	Team                 interface{}    `json:"team"`
+	Team                 interface{}                                          `json:"team"`
 	P2P                  []GetProjectAttemptEvaluationsInfo_Data_P2P          `json:"p2p"`
 	Auto                 GetProjectAttemptEvaluationsInfo_Data_Auto           `json:"auto"`
 	CodeReview           GetProjectAttemptEvaluationsInfo_Data_CodeReview     `json:"codeReview"`
-	Typename             string         `json:"__typename"`
+	Typename             string                                               `json:"__typename"`
 }
 
 type GetProjectAttemptEvaluationsInfo_Data_AttemptResult struct {
@@ -52,33 +51,33 @@ type GetProjectAttemptEvaluationsInfo_Data_CodeReview struct {
 }
 
 type GetProjectAttemptEvaluationsInfo_Data_P2P struct {
-	Status    string     `json:"status"`
+	Status    string                                           `json:"status"`
 	Checklist *GetProjectAttemptEvaluationsInfo_Data_Checklist `json:"checklist"`
-	Typename  string     `json:"__typename"`
+	Typename  string                                           `json:"__typename"`
 }
 
 type GetProjectAttemptEvaluationsInfo_Data_Checklist struct {
-	ID                 string          `json:"id"`
-	ChecklistID        string          `json:"checklistId"`
-	EndTimeCheck       string          `json:"endTimeCheck"`
-	StartTimeCheck     string          `json:"startTimeCheck"`
+	ID                 string                                                `json:"id"`
+	ChecklistID        string                                                `json:"checklistId"`
+	EndTimeCheck       string                                                `json:"endTimeCheck"`
+	StartTimeCheck     string                                                `json:"startTimeCheck"`
 	Reviewer           GetProjectAttemptEvaluationsInfo_Data_Reviewer        `json:"reviewer"`
 	ReviewFeedback     *GetProjectAttemptEvaluationsInfo_Data_ReviewFeedback `json:"reviewFeedback"`
-	Comment            string          `json:"comment"`
-	ReceivedPoint      int64           `json:"receivedPoint"`
-	ReceivedPercentage int64           `json:"receivedPercentage"`
-	QuickAction        interface{}     `json:"quickAction"`
-	CheckType          string          `json:"checkType"`
-	Video              interface{}     `json:"video"`
-	Typename           string          `json:"__typename"`
+	Comment            string                                                `json:"comment"`
+	ReceivedPoint      int64                                                 `json:"receivedPoint"`
+	ReceivedPercentage int64                                                 `json:"receivedPercentage"`
+	QuickAction        interface{}                                           `json:"quickAction"`
+	CheckType          string                                                `json:"checkType"`
+	Video              interface{}                                           `json:"video"`
+	Typename           string                                                `json:"__typename"`
 }
 
 type GetProjectAttemptEvaluationsInfo_Data_ReviewFeedback struct {
-	ID                           string                        `json:"id"`
-	Comment                      string                        `json:"comment"`
+	ID                           string                                                              `json:"id"`
+	Comment                      string                                                              `json:"comment"`
 	FilledChecklist              GetProjectAttemptEvaluationsInfo_Data_FilledChecklist               `json:"filledChecklist"`
 	ReviewFeedbackCategoryValues []GetProjectAttemptEvaluationsInfo_Data_ReviewFeedbackCategoryValue `json:"reviewFeedbackCategoryValues"`
-	Typename                     string                        `json:"__typename"`
+	Typename                     string                                                              `json:"__typename"`
 }
 
 type GetProjectAttemptEvaluationsInfo_Data_FilledChecklist struct {
@@ -99,7 +98,6 @@ type GetProjectAttemptEvaluationsInfo_Data_Reviewer struct {
 	BusinessAdminRoles []interface{} `json:"businessAdminRoles"`
 	Typename           string        `json:"__typename"`
 }
-
 
 func (ctx *RequestContext) GetProjectAttemptEvaluationsInfo(variables GetProjectAttemptEvaluationsInfo_Variables) (GetProjectAttemptEvaluationsInfo_Data, error) {
 	request := gql.NewQueryRequest[GetProjectAttemptEvaluationsInfo_Variables](

@@ -1,11 +1,10 @@
 package requests
 
-import "github.com/s21toolkit/s21client/gql"
+import "github.com/irefoxy/s21client/gql"
 
 type GetUsers_Variables struct {
 	UserIDS []string `json:"userIds"`
 }
-
 
 type GetUsers_Data struct {
 	School21 GetUsers_Data_School21 `json:"school21"`
@@ -13,7 +12,7 @@ type GetUsers_Data struct {
 
 type GetUsers_Data_School21 struct {
 	GetUsers []GetUsers_Data_GetUser `json:"getUsers"`
-	Typename string    `json:"__typename"`
+	Typename string                  `json:"__typename"`
 }
 
 type GetUsers_Data_GetUser struct {
@@ -26,7 +25,6 @@ type GetUsers_Data_GetUser struct {
 	Level      int64       `json:"level"`
 	Typename   string      `json:"__typename"`
 }
-
 
 func (ctx *RequestContext) GetUsers(variables GetUsers_Variables) (GetUsers_Data, error) {
 	request := gql.NewQueryRequest[GetUsers_Variables](

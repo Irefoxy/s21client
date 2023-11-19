@@ -1,11 +1,10 @@
 package requests
 
-import "github.com/s21toolkit/s21client/gql"
+import "github.com/irefoxy/s21client/gql"
 
 type CreateFilledChecklist_Variables struct {
 	StudentAnswerID string `json:"studentAnswerId"`
 }
-
 
 type CreateFilledChecklist_Data struct {
 	Student CreateFilledChecklist_Data_Student `json:"student"`
@@ -13,52 +12,52 @@ type CreateFilledChecklist_Data struct {
 
 type CreateFilledChecklist_Data_Student struct {
 	CreateFilledChecklist CreateFilledChecklist_Data_CreateFilledChecklist `json:"createFilledChecklist"`
-	Typename              string                `json:"__typename"`
+	Typename              string                                           `json:"__typename"`
 }
 
 type CreateFilledChecklist_Data_CreateFilledChecklist struct {
-	ID                      string                  `json:"id"`
+	ID                      string                                             `json:"id"`
 	GitlabStudentProjectURL CreateFilledChecklist_Data_GitlabStudentProjectURL `json:"gitlabStudentProjectUrl"`
 	Checklist               CreateFilledChecklist_Data_Checklist               `json:"checklist"`
 	ModuleInfoP2P           CreateFilledChecklist_Data_ModuleInfoP2P           `json:"moduleInfoP2P"`
 	ProgressCheckInfo       CreateFilledChecklist_Data_ProgressCheckInfo       `json:"progressCheckInfo"`
 	VerifiableUsers         CreateFilledChecklist_Data_VerifiableUsers         `json:"verifiableUsers"`
-	Video                   interface{}             `json:"video"`
-	Typename                string                  `json:"__typename"`
+	Video                   interface{}                                        `json:"video"`
+	Typename                string                                             `json:"__typename"`
 }
 
 type CreateFilledChecklist_Data_Checklist struct {
-	Language     string        `json:"language"`
-	Introduction string        `json:"introduction"`
-	Guidelines   string        `json:"guidelines"`
+	Language     string                                   `json:"language"`
+	Introduction string                                   `json:"introduction"`
+	Guidelines   string                                   `json:"guidelines"`
 	SectionList  []CreateFilledChecklist_Data_SectionList `json:"sectionList"`
-	QuickActions []string      `json:"quickActions"`
-	Typename     string        `json:"__typename"`
+	QuickActions []string                                 `json:"quickActions"`
+	Typename     string                                   `json:"__typename"`
 }
 
 type CreateFilledChecklist_Data_SectionList struct {
-	ChecklistSectionID string         `json:"checklistSectionId"`
-	Name               string         `json:"name"`
-	Description        string         `json:"description"`
-	KindQuestionID     string         `json:"kindQuestionId"`
+	ChecklistSectionID string                                    `json:"checklistSectionId"`
+	Name               string                                    `json:"name"`
+	Description        string                                    `json:"description"`
+	KindQuestionID     string                                    `json:"kindQuestionId"`
 	QuestionList       []CreateFilledChecklist_Data_QuestionList `json:"questionList"`
-	Typename           string         `json:"__typename"`
+	Typename           string                                    `json:"__typename"`
 }
 
 type CreateFilledChecklist_Data_QuestionList struct {
-	SectionQuestionID   string              `json:"sectionQuestionId"`
-	Name                string              `json:"name"`
-	Description         string              `json:"description"`
+	SectionQuestionID   string                                         `json:"sectionQuestionId"`
+	Name                string                                         `json:"name"`
+	Description         string                                         `json:"description"`
 	TaskAssessmentScale CreateFilledChecklist_Data_TaskAssessmentScale `json:"taskAssessmentScale"`
-	Typename            string              `json:"__typename"`
+	Typename            string                                         `json:"__typename"`
 }
 
 type CreateFilledChecklist_Data_TaskAssessmentScale struct {
-	CriterionScaleID string        `json:"criterionScaleId"`
-	Type             string        `json:"type"`
-	Description      string        `json:"description"`
+	CriterionScaleID string                                   `json:"criterionScaleId"`
+	Type             string                                   `json:"type"`
+	Description      string                                   `json:"description"`
 	ScaleWeights     []CreateFilledChecklist_Data_ScaleWeight `json:"scaleWeights"`
-	Typename         string        `json:"__typename"`
+	Typename         string                                   `json:"__typename"`
 }
 
 type CreateFilledChecklist_Data_ScaleWeight struct {
@@ -89,41 +88,41 @@ type CreateFilledChecklist_Data_ProgressCheckInfo struct {
 type CreateFilledChecklist_Data_VerifiableUsers struct {
 	TeamWithMembers *CreateFilledChecklist_Data_TeamWithMembers `json:"teamWithMembers"`
 	User            *CreateFilledChecklist_Data_User            `json:"user"`
-	Typename        string           `json:"__typename"`
+	Typename        string                                      `json:"__typename"`
 }
 
 type CreateFilledChecklist_Data_TeamWithMembers struct {
 	Team     CreateFilledChecklist_Data_Team     `json:"team"`
 	Members  []CreateFilledChecklist_Data_Member `json:"members"`
-	Typename string   `json:"__typename"`
+	Typename string                              `json:"__typename"`
 }
 
 type CreateFilledChecklist_Data_Member struct {
-	User     CreateFilledChecklist_Data_User   `json:"user"`
-	Role     string `json:"role"`
-	Typename string `json:"__typename"`
+	User     CreateFilledChecklist_Data_User `json:"user"`
+	Role     string                          `json:"role"`
+	Typename string                          `json:"__typename"`
 }
 
 type CreateFilledChecklist_Data_User struct {
-	ID             string         `json:"id"`
-	AvatarURL      string         `json:"avatarUrl"`
-	Login          string         `json:"login"`
+	ID             string                                    `json:"id"`
+	AvatarURL      string                                    `json:"avatarUrl"`
+	Login          string                                    `json:"login"`
 	UserExperience CreateFilledChecklist_Data_UserExperience `json:"userExperience"`
-	Typename       string         `json:"__typename"`
+	Typename       string                                    `json:"__typename"`
 }
 
 type CreateFilledChecklist_Data_UserExperience struct {
-	Level            CreateFilledChecklist_Data_Level  `json:"level"`
-	CookiesCount     int64  `json:"cookiesCount"`
-	CodeReviewPoints int64  `json:"codeReviewPoints"`
-	Typename         string `json:"__typename"`
+	Level            CreateFilledChecklist_Data_Level `json:"level"`
+	CookiesCount     int64                            `json:"cookiesCount"`
+	CodeReviewPoints int64                            `json:"codeReviewPoints"`
+	Typename         string                           `json:"__typename"`
 }
 
 type CreateFilledChecklist_Data_Level struct {
-	ID        int64  `json:"id"`
-	LevelCode int64  `json:"levelCode"`
-	Range     CreateFilledChecklist_Data_Range  `json:"range"`
-	Typename  string `json:"__typename"`
+	ID        int64                            `json:"id"`
+	LevelCode int64                            `json:"levelCode"`
+	Range     CreateFilledChecklist_Data_Range `json:"range"`
+	Typename  string                           `json:"__typename"`
 }
 
 type CreateFilledChecklist_Data_Range struct {
@@ -136,7 +135,6 @@ type CreateFilledChecklist_Data_Team struct {
 	Name     string `json:"name"`
 	Typename string `json:"__typename"`
 }
-
 
 func (ctx *RequestContext) CreateFilledChecklist(variables CreateFilledChecklist_Variables) (CreateFilledChecklist_Data, error) {
 	request := gql.NewQueryRequest[CreateFilledChecklist_Variables](

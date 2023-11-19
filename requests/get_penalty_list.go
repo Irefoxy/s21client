@@ -1,10 +1,10 @@
 package requests
 
-import "github.com/s21toolkit/s21client/gql"
+import "github.com/irefoxy/s21client/gql"
 
 type GetPenaltyList_Variables struct {
-	Page     GetPenaltyList_Variables_Page     `json:"page"`
-	Statuses []string `json:"statuses"`
+	Page     GetPenaltyList_Variables_Page `json:"page"`
+	Statuses []string                      `json:"statuses"`
 }
 
 type GetPenaltyList_Variables_Page struct {
@@ -12,16 +12,15 @@ type GetPenaltyList_Variables_Page struct {
 	Limit  int64 `json:"limit"`
 }
 
-
 type GetPenaltyList_Data struct {
 	School21 GetPenaltyList_Data_School21 `json:"school21"`
 }
 
 type GetPenaltyList_Data_School21 struct {
-	GetMyPenalties    []interface{}      `json:"getMyPenalties"`
+	GetMyPenalties    []interface{}                          `json:"getMyPenalties"`
 	GetPenaltyReasons []GetPenaltyList_Data_GetPenaltyReason `json:"getPenaltyReasons"`
-	CountMyPenalties  int64              `json:"countMyPenalties"`
-	Typename          string             `json:"__typename"`
+	CountMyPenalties  int64                                  `json:"countMyPenalties"`
+	Typename          string                                 `json:"__typename"`
 }
 
 type GetPenaltyList_Data_GetPenaltyReason struct {
@@ -29,7 +28,6 @@ type GetPenaltyList_Data_GetPenaltyReason struct {
 	Name     string `json:"name"`
 	Typename string `json:"__typename"`
 }
-
 
 func (ctx *RequestContext) GetPenaltyList(variables GetPenaltyList_Variables) (GetPenaltyList_Data, error) {
 	request := gql.NewQueryRequest[GetPenaltyList_Variables](

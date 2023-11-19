@@ -1,14 +1,14 @@
 package requests
 
-import "github.com/s21toolkit/s21client/gql"
+import "github.com/irefoxy/s21client/gql"
 
 type CreateFeedbackOnEvaluation_Variables struct {
 	ReviewFeedbackInput CreateFeedbackOnEvaluation_Variables_ReviewFeedbackInput `json:"reviewFeedbackInput"`
 }
 
 type CreateFeedbackOnEvaluation_Variables_ReviewFeedbackInput struct {
-	FilledChecklistID            string                        `json:"filledChecklistId"`
-	Comment                      string                        `json:"comment"`
+	FilledChecklistID            string                                                             `json:"filledChecklistId"`
+	Comment                      string                                                             `json:"comment"`
 	ReviewFeedbackCategoryValues []CreateFeedbackOnEvaluation_Variables_ReviewFeedbackCategoryValue `json:"reviewFeedbackCategoryValues"`
 }
 
@@ -17,22 +17,21 @@ type CreateFeedbackOnEvaluation_Variables_ReviewFeedbackCategoryValue struct {
 	FeedbackCategoryValue string `json:"feedbackCategoryValue"`
 }
 
-
 type CreateFeedbackOnEvaluation_Data struct {
 	Student CreateFeedbackOnEvaluation_Data_Student `json:"student"`
 }
 
 type CreateFeedbackOnEvaluation_Data_Student struct {
 	CreateReviewFeedback CreateFeedbackOnEvaluation_Data_CreateReviewFeedback `json:"createReviewFeedback"`
-	Typename             string               `json:"__typename"`
+	Typename             string                                               `json:"__typename"`
 }
 
 type CreateFeedbackOnEvaluation_Data_CreateReviewFeedback struct {
-	ID                           string                        `json:"id"`
-	Comment                      string                        `json:"comment"`
+	ID                           string                                                        `json:"id"`
+	Comment                      string                                                        `json:"comment"`
 	FilledChecklist              CreateFeedbackOnEvaluation_Data_FilledChecklist               `json:"filledChecklist"`
 	ReviewFeedbackCategoryValues []CreateFeedbackOnEvaluation_Data_ReviewFeedbackCategoryValue `json:"reviewFeedbackCategoryValues"`
-	Typename                     string                        `json:"__typename"`
+	Typename                     string                                                        `json:"__typename"`
 }
 
 type CreateFeedbackOnEvaluation_Data_FilledChecklist struct {
@@ -46,7 +45,6 @@ type CreateFeedbackOnEvaluation_Data_ReviewFeedbackCategoryValue struct {
 	ID               string `json:"id"`
 	Typename         string `json:"__typename"`
 }
-
 
 func (ctx *RequestContext) CreateFeedbackOnEvaluation(variables CreateFeedbackOnEvaluation_Variables) (CreateFeedbackOnEvaluation_Data, error) {
 	request := gql.NewQueryRequest[CreateFeedbackOnEvaluation_Variables](

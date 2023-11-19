@@ -1,10 +1,9 @@
 package requests
 
-import "github.com/s21toolkit/s21client/gql"
+import "github.com/irefoxy/s21client/gql"
 
 type GetSaleProgressPercentages_Variables struct {
 }
-
 
 type GetSaleProgressPercentages_Data struct {
 	School21 GetSaleProgressPercentages_Data_School21 `json:"school21"`
@@ -12,7 +11,7 @@ type GetSaleProgressPercentages_Data struct {
 
 type GetSaleProgressPercentages_Data_School21 struct {
 	GetSaleProgressPercentages []GetSaleProgressPercentages_Data_GetSaleProgressPercentage `json:"getSaleProgressPercentages"`
-	Typename                   string                      `json:"__typename"`
+	Typename                   string                                                      `json:"__typename"`
 }
 
 type GetSaleProgressPercentages_Data_GetSaleProgressPercentage struct {
@@ -20,7 +19,6 @@ type GetSaleProgressPercentages_Data_GetSaleProgressPercentage struct {
 	ProgressPercentage int64  `json:"progressPercentage"`
 	Typename           string `json:"__typename"`
 }
-
 
 func (ctx *RequestContext) GetSaleProgressPercentages(variables GetSaleProgressPercentages_Variables) (GetSaleProgressPercentages_Data, error) {
 	request := gql.NewQueryRequest[GetSaleProgressPercentages_Variables](

@@ -1,12 +1,11 @@
 package requests
 
-import "github.com/s21toolkit/s21client/gql"
+import "github.com/irefoxy/s21client/gql"
 
 type PublicProfileLoadStageGroups_Variables struct {
 	UserID   string `json:"userId"`
 	SchoolID string `json:"schoolId"`
 }
-
 
 type PublicProfileLoadStageGroups_Data struct {
 	School21 PublicProfileLoadStageGroups_Data_School21 `json:"school21"`
@@ -14,15 +13,15 @@ type PublicProfileLoadStageGroups_Data struct {
 
 type PublicProfileLoadStageGroups_Data_School21 struct {
 	LoadStudentStageGroupsS21PublicProfile []PublicProfileLoadStageGroups_Data_LoadStudentStageGroupsS21PublicProfile `json:"loadStudentStageGroupsS21PublicProfile"`
-	Typename                               string                                   `json:"__typename"`
+	Typename                               string                                                                     `json:"__typename"`
 }
 
 type PublicProfileLoadStageGroups_Data_LoadStudentStageGroupsS21PublicProfile struct {
-	StageGroupStudentID string        `json:"stageGroupStudentId"`
-	StudentID           string        `json:"studentId"`
+	StageGroupStudentID string                                          `json:"stageGroupStudentId"`
+	StudentID           string                                          `json:"studentId"`
 	StageGroupS21       PublicProfileLoadStageGroups_Data_StageGroupS21 `json:"stageGroupS21"`
 	SafeSchool          PublicProfileLoadStageGroups_Data_SafeSchool    `json:"safeSchool"`
-	Typename            string        `json:"__typename"`
+	Typename            string                                          `json:"__typename"`
 }
 
 type PublicProfileLoadStageGroups_Data_SafeSchool struct {
@@ -37,7 +36,6 @@ type PublicProfileLoadStageGroups_Data_StageGroupS21 struct {
 	Active   bool   `json:"active"`
 	Typename string `json:"__typename"`
 }
-
 
 func (ctx *RequestContext) PublicProfileLoadStageGroups(variables PublicProfileLoadStageGroups_Variables) (PublicProfileLoadStageGroups_Data, error) {
 	request := gql.NewQueryRequest[PublicProfileLoadStageGroups_Variables](

@@ -3,7 +3,7 @@ package s21client
 import (
 	"context"
 
-	"github.com/s21toolkit/s21client/auth"
+	"github.com/irefoxy/s21client/auth"
 )
 
 type defaultAuthProvider struct {

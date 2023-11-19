@@ -1,6 +1,6 @@
 package requests
 
-import "github.com/s21toolkit/s21client/gql"
+import "github.com/irefoxy/s21client/gql"
 
 type GetSecondRoundCodeReviewProjects_Variables struct {
 	Paging GetSecondRoundCodeReviewProjects_Variables_Paging `json:"paging"`
@@ -11,7 +11,6 @@ type GetSecondRoundCodeReviewProjects_Variables_Paging struct {
 	Limit  int64 `json:"limit"`
 }
 
-
 type GetSecondRoundCodeReviewProjects_Data struct {
 	Student GetSecondRoundCodeReviewProjects_Data_Student `json:"student"`
 }
@@ -20,7 +19,6 @@ type GetSecondRoundCodeReviewProjects_Data_Student struct {
 	GetSecondRoundCodeReviewProjects []interface{} `json:"getSecondRoundCodeReviewProjects"`
 	Typename                         string        `json:"__typename"`
 }
-
 
 func (ctx *RequestContext) GetSecondRoundCodeReviewProjects(variables GetSecondRoundCodeReviewProjects_Variables) (GetSecondRoundCodeReviewProjects_Data, error) {
 	request := gql.NewQueryRequest[GetSecondRoundCodeReviewProjects_Variables](

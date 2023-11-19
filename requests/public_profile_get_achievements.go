@@ -1,11 +1,10 @@
 package requests
 
-import "github.com/s21toolkit/s21client/gql"
+import "github.com/irefoxy/s21client/gql"
 
 type PublicProfileGetAchievements_Variables struct {
 	UserID string `json:"userId"`
 }
-
 
 type PublicProfileGetAchievements_Data struct {
 	Student PublicProfileGetAchievements_Data_Student `json:"student"`
@@ -13,14 +12,14 @@ type PublicProfileGetAchievements_Data struct {
 
 type PublicProfileGetAchievements_Data_Student struct {
 	GetBadgesPublicProfile []PublicProfileGetAchievements_Data_GetBadgesPublicProfile `json:"getBadgesPublicProfile"`
-	Typename               string                   `json:"__typename"`
+	Typename               string                                                     `json:"__typename"`
 }
 
 type PublicProfileGetAchievements_Data_GetBadgesPublicProfile struct {
-	Points   int64  `json:"points"`
-	ID       string `json:"id"`
-	Badge    PublicProfileGetAchievements_Data_Badge  `json:"badge"`
-	Typename string `json:"__typename"`
+	Points   int64                                   `json:"points"`
+	ID       string                                  `json:"id"`
+	Badge    PublicProfileGetAchievements_Data_Badge `json:"badge"`
+	Typename string                                  `json:"__typename"`
 }
 
 type PublicProfileGetAchievements_Data_Badge struct {
@@ -29,7 +28,6 @@ type PublicProfileGetAchievements_Data_Badge struct {
 	AvatarURL string `json:"avatarUrl"`
 	Typename  string `json:"__typename"`
 }
-
 
 func (ctx *RequestContext) PublicProfileGetAchievements(variables PublicProfileGetAchievements_Variables) (PublicProfileGetAchievements_Data, error) {
 	request := gql.NewQueryRequest[PublicProfileGetAchievements_Variables](

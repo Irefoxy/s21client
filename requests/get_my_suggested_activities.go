@@ -1,6 +1,6 @@
 package requests
 
-import "github.com/s21toolkit/s21client/gql"
+import "github.com/irefoxy/s21client/gql"
 
 type GetMySuggestedActivities_Variables struct {
 	Page GetMySuggestedActivities_Variables_Page `json:"page"`
@@ -11,7 +11,6 @@ type GetMySuggestedActivities_Variables_Page struct {
 	Limit  int64 `json:"limit"`
 }
 
-
 type GetMySuggestedActivities_Data struct {
 	School21 GetMySuggestedActivities_Data_School21 `json:"school21"`
 }
@@ -20,7 +19,6 @@ type GetMySuggestedActivities_Data_School21 struct {
 	GetMySuggestedActivities []interface{} `json:"getMySuggestedActivities"`
 	Typename                 string        `json:"__typename"`
 }
-
 
 func (ctx *RequestContext) GetMySuggestedActivities(variables GetMySuggestedActivities_Variables) (GetMySuggestedActivities_Data, error) {
 	request := gql.NewQueryRequest[GetMySuggestedActivities_Variables](

@@ -6,8 +6,8 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/s21toolkit/s21client"
-	"github.com/s21toolkit/s21client/requests"
+	"github.com/irefoxy/s21client"
+	"github.com/irefoxy/s21client/requests"
 )
 
 func loadDotenv(t *testing.T) {

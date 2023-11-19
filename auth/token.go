@@ -8,7 +8,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/s21toolkit/s21client/util"
+	"github.com/irefoxy/s21client/util"
 
 	"github.com/go-resty/resty/v2"
 	"github.com/google/uuid"

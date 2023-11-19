@@ -1,6 +1,6 @@
 package requests
 
-import "github.com/s21toolkit/s21client/gql"
+import "github.com/irefoxy/s21client/gql"
 
 type GetAgendaEvents_Variables struct {
 	From  string `json:"from"`
@@ -8,25 +8,24 @@ type GetAgendaEvents_Variables struct {
 	Limit int64  `json:"limit"`
 }
 
-
 type GetAgendaEvents_Data struct {
 	CalendarEventS21 GetAgendaEvents_Data_CalendarEventS21 `json:"calendarEventS21"`
 }
 
 type GetAgendaEvents_Data_CalendarEventS21 struct {
 	GetMyAgendaEvents []GetAgendaEvents_Data_GetMyAgendaEvent `json:"getMyAgendaEvents"`
-	Typename          string             `json:"__typename"`
+	Typename          string                                  `json:"__typename"`
 }
 
 type GetAgendaEvents_Data_GetMyAgendaEvent struct {
 	AgendaItemContext GetAgendaEvents_Data_AgendaItemContext `json:"agendaItemContext"`
-	Start             string            `json:"start"`
-	End               string            `json:"end"`
-	Label             string            `json:"label"`
-	Description       string            `json:"description"`
-	AgendaEventType   string            `json:"agendaEventType"`
+	Start             string                                 `json:"start"`
+	End               string                                 `json:"end"`
+	Label             string                                 `json:"label"`
+	Description       string                                 `json:"description"`
+	AgendaEventType   string                                 `json:"agendaEventType"`
 	AdditionalInfo    []GetAgendaEvents_Data_AdditionalInfo  `json:"additionalInfo"`
-	Typename          string            `json:"__typename"`
+	Typename          string                                 `json:"__typename"`
 }
 
 type GetAgendaEvents_Data_AdditionalInfo struct {
@@ -40,7 +39,6 @@ type GetAgendaEvents_Data_AgendaItemContext struct {
 	EntityType string `json:"entityType"`
 	Typename   string `json:"__typename"`
 }
-
 
 func (ctx *RequestContext) GetAgendaEvents(variables GetAgendaEvents_Variables) (GetAgendaEvents_Data, error) {
 	request := gql.NewQueryRequest[GetAgendaEvents_Variables](

@@ -1,12 +1,11 @@
 package requests
 
-import "github.com/s21toolkit/s21client/gql"
+import "github.com/irefoxy/s21client/gql"
 
 type GetUserFeatureFlags_Variables struct {
 	EntityID     *string  `json:"entityId,omitempty"`
 	EntityIDList []string `json:"entityIdList,omitempty"`
 }
-
 
 type GetUserFeatureFlags_Data struct {
 	User GetUserFeatureFlags_Data_User `json:"user"`
@@ -14,7 +13,7 @@ type GetUserFeatureFlags_Data struct {
 
 type GetUserFeatureFlags_Data_User struct {
 	GetAllBackendConfigurations []GetUserFeatureFlags_Data_GetAllBackendConfiguration `json:"getAllBackendConfigurations"`
-	Typename                    string                       `json:"__typename"`
+	Typename                    string                                                `json:"__typename"`
 }
 
 type GetUserFeatureFlags_Data_GetAllBackendConfiguration struct {
@@ -22,7 +21,6 @@ type GetUserFeatureFlags_Data_GetAllBackendConfiguration struct {
 	Value        string `json:"value"`
 	Typename     string `json:"__typename"`
 }
-
 
 func (ctx *RequestContext) GetUserFeatureFlags(variables GetUserFeatureFlags_Variables) (GetUserFeatureFlags_Data, error) {
 	request := gql.NewQueryRequest[GetUserFeatureFlags_Variables](

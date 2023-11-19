@@ -1,10 +1,9 @@
 package requests
 
-import "github.com/s21toolkit/s21client/gql"
+import "github.com/irefoxy/s21client/gql"
 
 type GetDashboardBuildings_Variables struct {
 }
-
 
 type GetDashboardBuildings_Data struct {
 	Student GetDashboardBuildings_Data_Student `json:"student"`
@@ -12,13 +11,13 @@ type GetDashboardBuildings_Data struct {
 
 type GetDashboardBuildings_Data_Student struct {
 	GetBuildings []GetDashboardBuildings_Data_GetBuilding `json:"getBuildings"`
-	Typename     string        `json:"__typename"`
+	Typename     string                                   `json:"__typename"`
 }
 
 type GetDashboardBuildings_Data_GetBuilding struct {
-	ID         string      `json:"id"`
+	ID         string                                 `json:"id"`
 	Classrooms []GetDashboardBuildings_Data_Classroom `json:"classrooms"`
-	Typename   string      `json:"__typename"`
+	Typename   string                                 `json:"__typename"`
 }
 
 type GetDashboardBuildings_Data_Classroom struct {
@@ -26,7 +25,6 @@ type GetDashboardBuildings_Data_Classroom struct {
 	Number   string `json:"number"`
 	Typename string `json:"__typename"`
 }
-
 
 func (ctx *RequestContext) GetDashboardBuildings(variables GetDashboardBuildings_Variables) (GetDashboardBuildings_Data, error) {
 	request := gql.NewQueryRequest[GetDashboardBuildings_Variables](

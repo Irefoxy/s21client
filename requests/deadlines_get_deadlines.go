@@ -1,11 +1,11 @@
 package requests
 
-import "github.com/s21toolkit/s21client/gql"
+import "github.com/irefoxy/s21client/gql"
 
 type DeadlinesGetDeadlines_Variables struct {
-	Page             DeadlinesGetDeadlines_Variables_Page     `json:"page"`
-	DeadlineStatuses []string `json:"deadlineStatuses"`
-	Sorting          DeadlinesGetDeadlines_Variables_Sorting  `json:"sorting"`
+	Page             DeadlinesGetDeadlines_Variables_Page    `json:"page"`
+	DeadlineStatuses []string                                `json:"deadlineStatuses"`
+	Sorting          DeadlinesGetDeadlines_Variables_Sorting `json:"sorting"`
 }
 
 type DeadlinesGetDeadlines_Variables_Page struct {
@@ -18,47 +18,46 @@ type DeadlinesGetDeadlines_Variables_Sorting struct {
 	Asc  bool   `json:"asc"`
 }
 
-
 type DeadlinesGetDeadlines_Data struct {
 	Student DeadlinesGetDeadlines_Data_Student `json:"student"`
 }
 
 type DeadlinesGetDeadlines_Data_Student struct {
 	GetDeadlines []DeadlinesGetDeadlines_Data_GetDeadline `json:"getDeadlines"`
-	Typename     string        `json:"__typename"`
+	Typename     string                                   `json:"__typename"`
 }
 
 type DeadlinesGetDeadlines_Data_GetDeadline struct {
-	Deadline      DeadlinesGetDeadlines_Data_Deadline      `json:"deadline"`
-	ShiftRequests []interface{} `json:"shiftRequests"`
-	DeadlineGoal  DeadlinesGetDeadlines_Data_DeadlineGoal  `json:"deadlineGoal"`
-	ShiftCount    int64         `json:"shiftCount"`
-	Typename      string        `json:"__typename"`
+	Deadline      DeadlinesGetDeadlines_Data_Deadline     `json:"deadline"`
+	ShiftRequests []interface{}                           `json:"shiftRequests"`
+	DeadlineGoal  DeadlinesGetDeadlines_Data_DeadlineGoal `json:"deadlineGoal"`
+	ShiftCount    int64                                   `json:"shiftCount"`
+	Typename      string                                  `json:"__typename"`
 }
 
 type DeadlinesGetDeadlines_Data_Deadline struct {
-	DeadlineID          string  `json:"deadlineId"`
-	Description         string  `json:"description"`
-	Comment             string  `json:"comment"`
-	DeadlineToDaysArray []int64 `json:"deadlineToDaysArray"`
-	DeadlineTs          string  `json:"deadlineTs"`
-	CreateTs            string  `json:"createTs"`
-	UpdateTs            *string `json:"updateTs"`
-	Status              string  `json:"status"`
-	Rules               []DeadlinesGetDeadlines_Data_Rule  `json:"rules"`
-	Typename            string  `json:"__typename"`
+	DeadlineID          string                            `json:"deadlineId"`
+	Description         string                            `json:"description"`
+	Comment             string                            `json:"comment"`
+	DeadlineToDaysArray []int64                           `json:"deadlineToDaysArray"`
+	DeadlineTs          string                            `json:"deadlineTs"`
+	CreateTs            string                            `json:"createTs"`
+	UpdateTs            *string                           `json:"updateTs"`
+	Status              string                            `json:"status"`
+	Rules               []DeadlinesGetDeadlines_Data_Rule `json:"rules"`
+	Typename            string                            `json:"__typename"`
 }
 
 type DeadlinesGetDeadlines_Data_Rule struct {
-	LogicalOperatorID interface{}    `json:"logicalOperatorId"`
+	LogicalOperatorID interface{}                               `json:"logicalOperatorId"`
 	RulesInGroup      []DeadlinesGetDeadlines_Data_RulesInGroup `json:"rulesInGroup"`
-	Typename          string         `json:"__typename"`
+	Typename          string                                    `json:"__typename"`
 }
 
 type DeadlinesGetDeadlines_Data_RulesInGroup struct {
-	LogicalOperatorID interface{} `json:"logicalOperatorId"`
-	Value             DeadlinesGetDeadlines_Data_Value       `json:"value"`
-	Typename          string      `json:"__typename"`
+	LogicalOperatorID interface{}                      `json:"logicalOperatorId"`
+	Value             DeadlinesGetDeadlines_Data_Value `json:"value"`
+	Typename          string                           `json:"__typename"`
 }
 
 type DeadlinesGetDeadlines_Data_Value struct {
@@ -70,10 +69,10 @@ type DeadlinesGetDeadlines_Data_Value struct {
 }
 
 type DeadlinesGetDeadlines_Data_DeadlineGoal struct {
-	GoalProjects []interface{} `json:"goalProjects"`
-	GoalCourses  []interface{} `json:"goalCourses"`
-	Levels       []DeadlinesGetDeadlines_Data_Level       `json:"levels"`
-	Typename     string        `json:"__typename"`
+	GoalProjects []interface{}                      `json:"goalProjects"`
+	GoalCourses  []interface{}                      `json:"goalCourses"`
+	Levels       []DeadlinesGetDeadlines_Data_Level `json:"levels"`
+	Typename     string                             `json:"__typename"`
 }
 
 type DeadlinesGetDeadlines_Data_Level struct {
@@ -84,7 +83,6 @@ type DeadlinesGetDeadlines_Data_Level struct {
 	RightBorder int64  `json:"rightBorder"`
 	Typename    string `json:"__typename"`
 }
-
 
 func (ctx *RequestContext) DeadlinesGetDeadlines(variables DeadlinesGetDeadlines_Variables) (DeadlinesGetDeadlines_Data, error) {
 	request := gql.NewQueryRequest[DeadlinesGetDeadlines_Variables](

@@ -1,11 +1,10 @@
 package requests
 
-import "github.com/s21toolkit/s21client/gql"
+import "github.com/irefoxy/s21client/gql"
 
 type GetCredentialsByLogin_Variables struct {
 	Login string `json:"login"`
 }
-
 
 type GetCredentialsByLogin_Data struct {
 	School21 GetCredentialsByLogin_Data_School21 `json:"school21"`
@@ -13,7 +12,7 @@ type GetCredentialsByLogin_Data struct {
 
 type GetCredentialsByLogin_Data_School21 struct {
 	GetStudentByLogin GetCredentialsByLogin_Data_GetStudentByLogin `json:"getStudentByLogin"`
-	Typename          string            `json:"__typename"`
+	Typename          string                                       `json:"__typename"`
 }
 
 type GetCredentialsByLogin_Data_GetStudentByLogin struct {
@@ -24,7 +23,6 @@ type GetCredentialsByLogin_Data_GetStudentByLogin struct {
 	IsGraduate bool   `json:"isGraduate"`
 	Typename   string `json:"__typename"`
 }
-
 
 func (ctx *RequestContext) GetCredentialsByLogin(variables GetCredentialsByLogin_Variables) (GetCredentialsByLogin_Data, error) {
 	request := gql.NewQueryRequest[GetCredentialsByLogin_Variables](

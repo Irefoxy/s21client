@@ -1,12 +1,11 @@
 package requests
 
-import "github.com/s21toolkit/s21client/gql"
+import "github.com/irefoxy/s21client/gql"
 
 type GetGraphCurrentType_Variables struct {
 	UserID   string `json:"userId"`
 	SchoolID string `json:"schoolId"`
 }
-
 
 type GetGraphCurrentType_Data struct {
 	Student GetGraphCurrentType_Data_Student `json:"student"`
@@ -14,7 +13,7 @@ type GetGraphCurrentType_Data struct {
 
 type GetGraphCurrentType_Data_Student struct {
 	GetStudentCurrentStageWithGraphType GetGraphCurrentType_Data_GetStudentCurrentStageWithGraphType `json:"getStudentCurrentStageWithGraphType"`
-	Typename                            string                              `json:"__typename"`
+	Typename                            string                                                       `json:"__typename"`
 }
 
 type GetGraphCurrentType_Data_GetStudentCurrentStageWithGraphType struct {
@@ -22,7 +21,6 @@ type GetGraphCurrentType_Data_GetStudentCurrentStageWithGraphType struct {
 	GraphType string `json:"graphType"`
 	Typename  string `json:"__typename"`
 }
-
 
 func (ctx *RequestContext) GetGraphCurrentType(variables GetGraphCurrentType_Variables) (GetGraphCurrentType_Data, error) {
 	request := gql.NewQueryRequest[GetGraphCurrentType_Variables](

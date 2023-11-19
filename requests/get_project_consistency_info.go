@@ -1,11 +1,10 @@
 package requests
 
-import "github.com/s21toolkit/s21client/gql"
+import "github.com/irefoxy/s21client/gql"
 
 type GetProjectConsistencyInfo_Variables struct {
 	GoalID string `json:"goalId"`
 }
-
 
 type GetProjectConsistencyInfo_Data struct {
 	School21 GetProjectConsistencyInfo_Data_School21 `json:"school21"`
@@ -13,7 +12,7 @@ type GetProjectConsistencyInfo_Data struct {
 
 type GetProjectConsistencyInfo_Data_School21 struct {
 	LoadGoalConsistencyInfo GetProjectConsistencyInfo_Data_LoadGoalConsistencyInfo `json:"loadGoalConsistencyInfo"`
-	Typename                string                  `json:"__typename"`
+	Typename                string                                                 `json:"__typename"`
 }
 
 type GetProjectConsistencyInfo_Data_LoadGoalConsistencyInfo struct {
@@ -21,7 +20,6 @@ type GetProjectConsistencyInfo_Data_LoadGoalConsistencyInfo struct {
 	IsConsistent bool   `json:"isConsistent"`
 	Typename     string `json:"__typename"`
 }
-
 
 func (ctx *RequestContext) GetProjectConsistencyInfo(variables GetProjectConsistencyInfo_Variables) (GetProjectConsistencyInfo_Data, error) {
 	request := gql.NewQueryRequest[GetProjectConsistencyInfo_Variables](

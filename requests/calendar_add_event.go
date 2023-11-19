@@ -1,12 +1,11 @@
 package requests
 
-import "github.com/s21toolkit/s21client/gql"
+import "github.com/irefoxy/s21client/gql"
 
 type CalendarAddEvent_Variables struct {
 	Start string `json:"start"`
 	End   string `json:"end"`
 }
-
 
 type CalendarAddEvent_Data struct {
 	Student CalendarAddEvent_Data_Student `json:"student"`
@@ -14,24 +13,24 @@ type CalendarAddEvent_Data struct {
 
 type CalendarAddEvent_Data_Student struct {
 	AddEventToTimetable []CalendarAddEvent_Data_AddEventToTimetable `json:"addEventToTimetable"`
-	Typename            string                `json:"__typename"`
+	Typename            string                                      `json:"__typename"`
 }
 
 type CalendarAddEvent_Data_AddEventToTimetable struct {
-	ID                string        `json:"id"`
-	Start             string        `json:"start"`
-	End               string        `json:"end"`
-	Description       string        `json:"description"`
-	EventType         string        `json:"eventType"`
-	EventCode         interface{}   `json:"eventCode"`
-	EventSlots        []CalendarAddEvent_Data_EventSlot   `json:"eventSlots"`
-	Bookings          []interface{} `json:"bookings"`
-	Exam              interface{}   `json:"exam"`
-	StudentCodeReview interface{}   `json:"studentCodeReview"`
-	Activity          interface{}   `json:"activity"`
-	Goals             []interface{} `json:"goals"`
-	Penalty           interface{}   `json:"penalty"`
-	Typename          string        `json:"__typename"`
+	ID                string                            `json:"id"`
+	Start             string                            `json:"start"`
+	End               string                            `json:"end"`
+	Description       string                            `json:"description"`
+	EventType         string                            `json:"eventType"`
+	EventCode         interface{}                       `json:"eventCode"`
+	EventSlots        []CalendarAddEvent_Data_EventSlot `json:"eventSlots"`
+	Bookings          []interface{}                     `json:"bookings"`
+	Exam              interface{}                       `json:"exam"`
+	StudentCodeReview interface{}                       `json:"studentCodeReview"`
+	Activity          interface{}                       `json:"activity"`
+	Goals             []interface{}                     `json:"goals"`
+	Penalty           interface{}                       `json:"penalty"`
+	Typename          string                            `json:"__typename"`
 }
 
 type CalendarAddEvent_Data_EventSlot struct {
@@ -41,7 +40,6 @@ type CalendarAddEvent_Data_EventSlot struct {
 	End      string `json:"end"`
 	Typename string `json:"__typename"`
 }
-
 
 func (ctx *RequestContext) CalendarAddEvent(variables CalendarAddEvent_Variables) (CalendarAddEvent_Data, error) {
 	request := gql.NewQueryRequest[CalendarAddEvent_Variables](

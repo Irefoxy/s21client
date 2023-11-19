@@ -1,6 +1,6 @@
 package requests
 
-import "github.com/s21toolkit/s21client/gql"
+import "github.com/irefoxy/s21client/gql"
 
 type PublicProfileGetStudentTraffic_Variables struct {
 	Login    string `json:"login"`
@@ -8,21 +8,20 @@ type PublicProfileGetStudentTraffic_Variables struct {
 	Date     string `json:"date"`
 }
 
-
 type PublicProfileGetStudentTraffic_Data struct {
 	Student PublicProfileGetStudentTraffic_Data_Student `json:"student"`
 }
 
 type PublicProfileGetStudentTraffic_Data_Student struct {
 	GetStudentTraffic PublicProfileGetStudentTraffic_Data_GetStudentTraffic `json:"getStudentTraffic"`
-	Typename          string            `json:"__typename"`
+	Typename          string                                                `json:"__typename"`
 }
 
 type PublicProfileGetStudentTraffic_Data_GetStudentTraffic struct {
-	Days      []PublicProfileGetStudentTraffic_Data_Day  `json:"days"`
-	EndDate   string `json:"endDate"`
-	StartDate string `json:"startDate"`
-	Typename  string `json:"__typename"`
+	Days      []PublicProfileGetStudentTraffic_Data_Day `json:"days"`
+	EndDate   string                                    `json:"endDate"`
+	StartDate string                                    `json:"startDate"`
+	Typename  string                                    `json:"__typename"`
 }
 
 type PublicProfileGetStudentTraffic_Data_Day struct {
@@ -32,7 +31,6 @@ type PublicProfileGetStudentTraffic_Data_Day struct {
 	PeriodAuthorizIMAC string `json:"periodAuthorizIMac"`
 	Typename           string `json:"__typename"`
 }
-
 
 func (ctx *RequestContext) PublicProfileGetStudentTraffic(variables PublicProfileGetStudentTraffic_Variables) (PublicProfileGetStudentTraffic_Data, error) {
 	request := gql.NewQueryRequest[PublicProfileGetStudentTraffic_Variables](

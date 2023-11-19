@@ -1,12 +1,11 @@
 package requests
 
-import "github.com/s21toolkit/s21client/gql"
+import "github.com/irefoxy/s21client/gql"
 
 type SendInvitation_Variables struct {
 	UserID string `json:"userId"`
 	TeamID string `json:"teamId"`
 }
-
 
 type SendInvitation_Data struct {
 	Student SendInvitation_Data_DataStudent `json:"student"`
@@ -14,42 +13,42 @@ type SendInvitation_Data struct {
 
 type SendInvitation_Data_DataStudent struct {
 	SendInvitation SendInvitation_Data_SendInvitation `json:"sendInvitation"`
-	Typename       string         `json:"__typename"`
+	Typename       string                             `json:"__typename"`
 }
 
 type SendInvitation_Data_SendInvitation struct {
 	Student          SendInvitation_Data_SendInvitationStudent `json:"student"`
-	InvitationStatus string                `json:"invitationStatus"`
-	Typename         string                `json:"__typename"`
+	InvitationStatus string                                    `json:"invitationStatus"`
+	Typename         string                                    `json:"__typename"`
 }
 
 type SendInvitation_Data_SendInvitationStudent struct {
-	ID       string `json:"id"`
-	User     SendInvitation_Data_User   `json:"user"`
-	Typename string `json:"__typename"`
+	ID       string                   `json:"id"`
+	User     SendInvitation_Data_User `json:"user"`
+	Typename string                   `json:"__typename"`
 }
 
 type SendInvitation_Data_User struct {
-	ID             string         `json:"id"`
-	Login          string         `json:"login"`
-	AvatarURL      string         `json:"avatarUrl"`
+	ID             string                             `json:"id"`
+	Login          string                             `json:"login"`
+	AvatarURL      string                             `json:"avatarUrl"`
 	UserExperience SendInvitation_Data_UserExperience `json:"userExperience"`
-	Typename       string         `json:"__typename"`
+	Typename       string                             `json:"__typename"`
 }
 
 type SendInvitation_Data_UserExperience struct {
-	ID               string `json:"id"`
-	CookiesCount     int64  `json:"cookiesCount"`
-	CodeReviewPoints int64  `json:"codeReviewPoints"`
-	CoinsCount       int64  `json:"coinsCount"`
-	Level            SendInvitation_Data_Level  `json:"level"`
-	Typename         string `json:"__typename"`
+	ID               string                    `json:"id"`
+	CookiesCount     int64                     `json:"cookiesCount"`
+	CodeReviewPoints int64                     `json:"codeReviewPoints"`
+	CoinsCount       int64                     `json:"coinsCount"`
+	Level            SendInvitation_Data_Level `json:"level"`
+	Typename         string                    `json:"__typename"`
 }
 
 type SendInvitation_Data_Level struct {
-	ID       int64  `json:"id"`
-	Range    SendInvitation_Data_Range  `json:"range"`
-	Typename string `json:"__typename"`
+	ID       int64                     `json:"id"`
+	Range    SendInvitation_Data_Range `json:"range"`
+	Typename string                    `json:"__typename"`
 }
 
 type SendInvitation_Data_Range struct {
@@ -57,7 +56,6 @@ type SendInvitation_Data_Range struct {
 	LevelCode int64  `json:"levelCode"`
 	Typename  string `json:"__typename"`
 }
-
 
 func (ctx *RequestContext) SendInvitation(variables SendInvitation_Variables) (SendInvitation_Data, error) {
 	request := gql.NewQueryRequest[SendInvitation_Variables](

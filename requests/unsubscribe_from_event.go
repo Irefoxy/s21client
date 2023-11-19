@@ -1,11 +1,10 @@
 package requests
 
-import "github.com/s21toolkit/s21client/gql"
+import "github.com/irefoxy/s21client/gql"
 
 type UnsubscribeFromEvent_Variables struct {
 	EventID string `json:"eventId"`
 }
-
 
 type UnsubscribeFromEvent_Data struct {
 	Student UnsubscribeFromEvent_Data_Student `json:"student"`
@@ -13,54 +12,54 @@ type UnsubscribeFromEvent_Data struct {
 
 type UnsubscribeFromEvent_Data_Student struct {
 	UnsubscribeFromEvent UnsubscribeFromEvent_Data_UnsubscribeFromEvent `json:"unsubscribeFromEvent"`
-	Typename             string               `json:"__typename"`
+	Typename             string                                         `json:"__typename"`
 }
 
 type UnsubscribeFromEvent_Data_UnsubscribeFromEvent struct {
-	ID                   string        `json:"id"`
-	Start                string        `json:"start"`
-	End                  string        `json:"end"`
-	Bookings             []interface{} `json:"bookings"`
-	EventSlots           []interface{} `json:"eventSlots"`
-	MaxStudentCount      int64         `json:"maxStudentCount"`
-	Location             string        `json:"location"`
-	IPRange              string        `json:"ipRange"`
-	EventType            string        `json:"eventType"`
-	EventCode            string        `json:"eventCode"`
-	Description          string        `json:"description"`
-	ExternalID           int64         `json:"externalId"`
-	CurrentStudentsCount int64         `json:"currentStudentsCount"`
-	Exam                 interface{}   `json:"exam"`
-	StudentCodeReview    interface{}   `json:"studentCodeReview"`
-	Activity             UnsubscribeFromEvent_Data_Activity      `json:"activity"`
-	Penalty              interface{}   `json:"penalty"`
-	Typename             string        `json:"__typename"`
+	ID                   string                             `json:"id"`
+	Start                string                             `json:"start"`
+	End                  string                             `json:"end"`
+	Bookings             []interface{}                      `json:"bookings"`
+	EventSlots           []interface{}                      `json:"eventSlots"`
+	MaxStudentCount      int64                              `json:"maxStudentCount"`
+	Location             string                             `json:"location"`
+	IPRange              string                             `json:"ipRange"`
+	EventType            string                             `json:"eventType"`
+	EventCode            string                             `json:"eventCode"`
+	Description          string                             `json:"description"`
+	ExternalID           int64                              `json:"externalId"`
+	CurrentStudentsCount int64                              `json:"currentStudentsCount"`
+	Exam                 interface{}                        `json:"exam"`
+	StudentCodeReview    interface{}                        `json:"studentCodeReview"`
+	Activity             UnsubscribeFromEvent_Data_Activity `json:"activity"`
+	Penalty              interface{}                        `json:"penalty"`
+	Typename             string                             `json:"__typename"`
 }
 
 type UnsubscribeFromEvent_Data_Activity struct {
-	ActivityEventID      string      `json:"activityEventId"`
-	EventID              string      `json:"eventId"`
-	BeginDate            string      `json:"beginDate"`
-	EndDate              string      `json:"endDate"`
-	Location             string      `json:"location"`
-	Description          string      `json:"description"`
-	MaxStudentCount      int64       `json:"maxStudentCount"`
-	IsVisible            bool        `json:"isVisible"`
-	Name                 string      `json:"name"`
-	IsWaitListActive     bool        `json:"isWaitListActive"`
-	IsInWaitList         bool        `json:"isInWaitList"`
-	CurrentStudentsCount int64       `json:"currentStudentsCount"`
-	CreateDate           string      `json:"createDate"`
-	UpdateDate           string      `json:"updateDate"`
-	SchoolID             string      `json:"schoolId"`
-	StopRegisterDate     string      `json:"stopRegisterDate"`
-	IsRegistered         bool        `json:"isRegistered"`
-	ActivityType         string      `json:"activityType"`
-	EventType            string      `json:"eventType"`
-	IsMandatory          bool        `json:"isMandatory"`
-	Status               string      `json:"status"`
+	ActivityEventID      string                                `json:"activityEventId"`
+	EventID              string                                `json:"eventId"`
+	BeginDate            string                                `json:"beginDate"`
+	EndDate              string                                `json:"endDate"`
+	Location             string                                `json:"location"`
+	Description          string                                `json:"description"`
+	MaxStudentCount      int64                                 `json:"maxStudentCount"`
+	IsVisible            bool                                  `json:"isVisible"`
+	Name                 string                                `json:"name"`
+	IsWaitListActive     bool                                  `json:"isWaitListActive"`
+	IsInWaitList         bool                                  `json:"isInWaitList"`
+	CurrentStudentsCount int64                                 `json:"currentStudentsCount"`
+	CreateDate           string                                `json:"createDate"`
+	UpdateDate           string                                `json:"updateDate"`
+	SchoolID             string                                `json:"schoolId"`
+	StopRegisterDate     string                                `json:"stopRegisterDate"`
+	IsRegistered         bool                                  `json:"isRegistered"`
+	ActivityType         string                                `json:"activityType"`
+	EventType            string                                `json:"eventType"`
+	IsMandatory          bool                                  `json:"isMandatory"`
+	Status               string                                `json:"status"`
 	Organizers           []UnsubscribeFromEvent_Data_Organizer `json:"organizers"`
-	Typename             string      `json:"__typename"`
+	Typename             string                                `json:"__typename"`
 }
 
 type UnsubscribeFromEvent_Data_Organizer struct {
@@ -68,7 +67,6 @@ type UnsubscribeFromEvent_Data_Organizer struct {
 	Login    string `json:"login"`
 	Typename string `json:"__typename"`
 }
-
 
 func (ctx *RequestContext) UnsubscribeFromEvent(variables UnsubscribeFromEvent_Variables) (UnsubscribeFromEvent_Data, error) {
 	request := gql.NewQueryRequest[UnsubscribeFromEvent_Variables](

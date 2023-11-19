@@ -1,11 +1,10 @@
 package requests
 
-import "github.com/s21toolkit/s21client/gql"
+import "github.com/irefoxy/s21client/gql"
 
 type GetGraphBasisGoals_Variables struct {
 	StudentID string `json:"studentId"`
 }
-
 
 type GetGraphBasisGoals_Data struct {
 	Student GetGraphBasisGoals_Data_Student `json:"student"`
@@ -13,25 +12,25 @@ type GetGraphBasisGoals_Data struct {
 
 type GetGraphBasisGoals_Data_Student struct {
 	GetBasisGraph GetGraphBasisGoals_Data_GetBasisGraph `json:"getBasisGraph"`
-	Typename      string        `json:"__typename"`
+	Typename      string                                `json:"__typename"`
 }
 
 type GetGraphBasisGoals_Data_GetBasisGraph struct {
-	IsIntensiveGraphAvailable bool        `json:"isIntensiveGraphAvailable"`
+	IsIntensiveGraphAvailable bool                                `json:"isIntensiveGraphAvailable"`
 	GraphNodes                []GetGraphBasisGoals_Data_GraphNode `json:"graphNodes"`
-	Typename                  string      `json:"__typename"`
+	Typename                  string                              `json:"__typename"`
 }
 
 type GetGraphBasisGoals_Data_GraphNode struct {
-	GraphNodeID     string           `json:"graphNodeId"`
-	NodeCode        string           `json:"nodeCode"`
+	GraphNodeID     string                                   `json:"graphNodeId"`
+	NodeCode        string                                   `json:"nodeCode"`
 	StudyDirections []GetGraphBasisGoals_Data_StudyDirection `json:"studyDirections"`
-	EntityType      string           `json:"entityType"`
-	EntityID        string           `json:"entityId"`
+	EntityType      string                                   `json:"entityType"`
+	EntityID        string                                   `json:"entityId"`
 	Goal            *GetGraphBasisGoals_Data_Course          `json:"goal"`
 	Course          *GetGraphBasisGoals_Data_Course          `json:"course"`
-	ParentNodeCodes []string         `json:"parentNodeCodes"`
-	Typename        string           `json:"__typename"`
+	ParentNodeCodes []string                                 `json:"parentNodeCodes"`
+	Typename        string                                   `json:"__typename"`
 }
 
 type GetGraphBasisGoals_Data_Course struct {
@@ -55,7 +54,6 @@ type GetGraphBasisGoals_Data_StudyDirection struct {
 	TextColor string `json:"textColor"`
 	Typename  string `json:"__typename"`
 }
-
 
 func (ctx *RequestContext) GetGraphBasisGoals(variables GetGraphBasisGoals_Variables) (GetGraphBasisGoals_Data, error) {
 	request := gql.NewQueryRequest[GetGraphBasisGoals_Variables](

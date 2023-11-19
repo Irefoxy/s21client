@@ -1,10 +1,9 @@
 package requests
 
-import "github.com/s21toolkit/s21client/gql"
+import "github.com/irefoxy/s21client/gql"
 
 type GetStageInfo_Variables struct {
 }
-
 
 type GetStageInfo_Data struct {
 	User GetStageInfo_Data_User `json:"user"`
@@ -13,7 +12,7 @@ type GetStageInfo_Data struct {
 type GetStageInfo_Data_User struct {
 	GetCurrentUser          GetStageInfo_Data_GetCurrentUser            `json:"getCurrentUser"`
 	GetAllStagesTenantAware []GetStageInfo_Data_GetAllStagesTenantAware `json:"getAllStagesTenantAware"`
-	Typename                string                    `json:"__typename"`
+	Typename                string                                      `json:"__typename"`
 }
 
 type GetStageInfo_Data_GetAllStagesTenantAware struct {
@@ -23,16 +22,16 @@ type GetStageInfo_Data_GetAllStagesTenantAware struct {
 }
 
 type GetStageInfo_Data_GetCurrentUser struct {
-	ID           string        `json:"id"`
+	ID           string                          `json:"id"`
 	StudentRoles []GetStageInfo_Data_StudentRole `json:"studentRoles"`
-	Typename     string        `json:"__typename"`
+	Typename     string                          `json:"__typename"`
 }
 
 type GetStageInfo_Data_StudentRole struct {
-	Status     string     `json:"status"`
+	Status     string                       `json:"status"`
 	School     GetStageInfo_Data_School     `json:"school"`
 	StageGroup GetStageInfo_Data_StageGroup `json:"stageGroup"`
-	Typename   string     `json:"__typename"`
+	Typename   string                       `json:"__typename"`
 }
 
 type GetStageInfo_Data_School struct {
@@ -42,22 +41,21 @@ type GetStageInfo_Data_School struct {
 
 type GetStageInfo_Data_StageGroup struct {
 	ClassSubjects []GetStageInfo_Data_ClassSubject `json:"classSubjects"`
-	Name          string         `json:"name"`
-	Stage         int64          `json:"stage"`
-	IsActive      bool           `json:"isActive"`
-	Typename      string         `json:"__typename"`
+	Name          string                           `json:"name"`
+	Stage         int64                            `json:"stage"`
+	IsActive      bool                             `json:"isActive"`
+	Typename      string                           `json:"__typename"`
 }
 
 type GetStageInfo_Data_ClassSubject struct {
-	Stage    GetStageInfo_Data_Stage  `json:"stage"`
-	Typename string `json:"__typename"`
+	Stage    GetStageInfo_Data_Stage `json:"stage"`
+	Typename string                  `json:"__typename"`
 }
 
 type GetStageInfo_Data_Stage struct {
 	Name     string `json:"name"`
 	Typename string `json:"__typename"`
 }
-
 
 func (ctx *RequestContext) GetStageInfo(variables GetStageInfo_Variables) (GetStageInfo_Data, error) {
 	request := gql.NewQueryRequest[GetStageInfo_Variables](

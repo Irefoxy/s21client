@@ -1,11 +1,10 @@
 package requests
 
-import "github.com/s21toolkit/s21client/gql"
+import "github.com/irefoxy/s21client/gql"
 
 type GetAgendaP2P_Variables struct {
 	BookingID string `json:"bookingId"`
 }
-
 
 type GetAgendaP2P_Data struct {
 	Student GetAgendaP2P_Data_Student `json:"student"`
@@ -13,21 +12,21 @@ type GetAgendaP2P_Data struct {
 
 type GetAgendaP2P_Data_Student struct {
 	GetEnrichedBooking GetAgendaP2P_Data_GetEnrichedBooking `json:"getEnrichedBooking"`
-	Typename           string             `json:"__typename"`
+	Typename           string                               `json:"__typename"`
 }
 
 type GetAgendaP2P_Data_GetEnrichedBooking struct {
-	ID                string             `json:"id"`
+	ID                string                               `json:"id"`
 	EventSlot         GetAgendaP2P_Data_EventSlot          `json:"eventSlot"`
 	Task              *GetAgendaP2P_Data_Task              `json:"task"`
 	VerifierUser      GetAgendaP2P_Data_VerifierUser       `json:"verifierUser"`
 	VerifiableStudent *GetAgendaP2P_Data_VerifiableStudent `json:"verifiableStudent"`
-	AnswerID          *string            `json:"answerId"`
+	AnswerID          *string                              `json:"answerId"`
 	Team              *GetAgendaP2P_Data_Team              `json:"team"`
-	BookingStatus     string             `json:"bookingStatus"`
-	IsOnline          bool               `json:"isOnline"`
-	VcLinkURL         interface{}        `json:"vcLinkUrl"`
-	Typename          string             `json:"__typename"`
+	BookingStatus     string                               `json:"bookingStatus"`
+	IsOnline          bool                                 `json:"isOnline"`
+	VcLinkURL         interface{}                          `json:"vcLinkUrl"`
+	Typename          string                               `json:"__typename"`
 }
 
 type GetAgendaP2P_Data_EventSlot struct {
@@ -36,11 +35,11 @@ type GetAgendaP2P_Data_EventSlot struct {
 }
 
 type GetAgendaP2P_Data_Task struct {
-	GoalID                          string                          `json:"goalId"`
-	GoalName                        string                          `json:"goalName"`
-	AssignmentType                  string                          `json:"assignmentType"`
+	GoalID                          string                                            `json:"goalId"`
+	GoalName                        string                                            `json:"goalName"`
+	AssignmentType                  string                                            `json:"assignmentType"`
 	StudentTaskAdditionalAttributes GetAgendaP2P_Data_StudentTaskAdditionalAttributes `json:"studentTaskAdditionalAttributes"`
-	Typename                        string                          `json:"__typename"`
+	Typename                        string                                            `json:"__typename"`
 }
 
 type GetAgendaP2P_Data_StudentTaskAdditionalAttributes struct {
@@ -49,28 +48,28 @@ type GetAgendaP2P_Data_StudentTaskAdditionalAttributes struct {
 }
 
 type GetAgendaP2P_Data_Team struct {
-	TeamName string         `json:"teamName"`
+	TeamName string                           `json:"teamName"`
 	TeamLead GetAgendaP2P_Data_VerifierUser   `json:"teamLead"`
 	Members  []GetAgendaP2P_Data_VerifierUser `json:"members"`
-	Typename string         `json:"__typename"`
+	Typename string                           `json:"__typename"`
 }
 
 type GetAgendaP2P_Data_VerifierUser struct {
-	ID             string         `json:"id"`
-	Login          string         `json:"login"`
-	AvatarURL      string         `json:"avatarUrl"`
+	ID             string                           `json:"id"`
+	Login          string                           `json:"login"`
+	AvatarURL      string                           `json:"avatarUrl"`
 	UserExperience GetAgendaP2P_Data_UserExperience `json:"userExperience"`
-	Typename       string         `json:"__typename"`
+	Typename       string                           `json:"__typename"`
 }
 
 type GetAgendaP2P_Data_UserExperience struct {
-	Level    GetAgendaP2P_Data_Level  `json:"level"`
-	Typename string `json:"__typename"`
+	Level    GetAgendaP2P_Data_Level `json:"level"`
+	Typename string                  `json:"__typename"`
 }
 
 type GetAgendaP2P_Data_Level struct {
-	Range    GetAgendaP2P_Data_Range  `json:"range"`
-	Typename string `json:"__typename"`
+	Range    GetAgendaP2P_Data_Range `json:"range"`
+	Typename string                  `json:"__typename"`
 }
 
 type GetAgendaP2P_Data_Range struct {
@@ -80,9 +79,8 @@ type GetAgendaP2P_Data_Range struct {
 
 type GetAgendaP2P_Data_VerifiableStudent struct {
 	User     GetAgendaP2P_Data_VerifierUser `json:"user"`
-	Typename string       `json:"__typename"`
+	Typename string                         `json:"__typename"`
 }
-
 
 func (ctx *RequestContext) GetAgendaP2P(variables GetAgendaP2P_Variables) (GetAgendaP2P_Data, error) {
 	request := gql.NewQueryRequest[GetAgendaP2P_Variables](

@@ -1,11 +1,10 @@
 package requests
 
-import "github.com/s21toolkit/s21client/gql"
+import "github.com/irefoxy/s21client/gql"
 
 type GetProjectInfo_Variables struct {
 	GoalID string `json:"goalId"`
 }
-
 
 type GetProjectInfo_Data struct {
 	Student GetProjectInfo_Data_Student `json:"student"`
@@ -16,38 +15,38 @@ type GetProjectInfo_Data_Student struct {
 	GetModuleCoverInformation    GetProjectInfo_Data_GetModuleCoverInformation    `json:"getModuleCoverInformation"`
 	GetP2PChecksInfo             GetProjectInfo_Data_GetP2PChecksInfo             `json:"getP2PChecksInfo"`
 	GetStudentCodeReviewByGoalID GetProjectInfo_Data_GetStudentCodeReviewByGoalID `json:"getStudentCodeReviewByGoalId"`
-	Typename                     string                       `json:"__typename"`
+	Typename                     string                                           `json:"__typename"`
 }
 
 type GetProjectInfo_Data_GetModuleByID struct {
-	ID                                string        `json:"id"`
-	ModuleTitle                       string        `json:"moduleTitle"`
-	FinalPercentage                   *int64        `json:"finalPercentage"`
-	FinalPoint                        *int64        `json:"finalPoint"`
-	GoalExecutionType                 string        `json:"goalExecutionType"`
-	DisplayedGoalStatus               string        `json:"displayedGoalStatus"`
-	AccessBeforeStartProgress         bool          `json:"accessBeforeStartProgress"`
-	ResultModuleCompletion            *string       `json:"resultModuleCompletion"`
-	FinishedExecutionDateByScheduler  interface{}   `json:"finishedExecutionDateByScheduler"`
-	DurationFromStageSubjectGroupPlan int64         `json:"durationFromStageSubjectGroupPlan"`
-	CurrentAttemptNumber              int64         `json:"currentAttemptNumber"`
-	IsDeadlineFree                    bool          `json:"isDeadlineFree"`
-	IsRetryAvailable                  bool          `json:"isRetryAvailable"`
-	LocalCourseID                     interface{}   `json:"localCourseId"`
-	CourseBaseParameters              interface{}   `json:"courseBaseParameters"`
+	ID                                string                            `json:"id"`
+	ModuleTitle                       string                            `json:"moduleTitle"`
+	FinalPercentage                   *int64                            `json:"finalPercentage"`
+	FinalPoint                        *int64                            `json:"finalPoint"`
+	GoalExecutionType                 string                            `json:"goalExecutionType"`
+	DisplayedGoalStatus               string                            `json:"displayedGoalStatus"`
+	AccessBeforeStartProgress         bool                              `json:"accessBeforeStartProgress"`
+	ResultModuleCompletion            *string                           `json:"resultModuleCompletion"`
+	FinishedExecutionDateByScheduler  interface{}                       `json:"finishedExecutionDateByScheduler"`
+	DurationFromStageSubjectGroupPlan int64                             `json:"durationFromStageSubjectGroupPlan"`
+	CurrentAttemptNumber              int64                             `json:"currentAttemptNumber"`
+	IsDeadlineFree                    bool                              `json:"isDeadlineFree"`
+	IsRetryAvailable                  bool                              `json:"isRetryAvailable"`
+	LocalCourseID                     interface{}                       `json:"localCourseId"`
+	CourseBaseParameters              interface{}                       `json:"courseBaseParameters"`
 	TeamSettings                      *GetProjectInfo_Data_TeamSettings `json:"teamSettings"`
 	StudyModule                       GetProjectInfo_Data_StudyModule   `json:"studyModule"`
 	CurrentTask                       GetProjectInfo_Data_CurrentTask   `json:"currentTask"`
-	Typename                          string        `json:"__typename"`
+	Typename                          string                            `json:"__typename"`
 }
 
 type GetProjectInfo_Data_CurrentTask struct {
-	ID           string          `json:"id"`
-	TaskID       string          `json:"taskId"`
+	ID           string                              `json:"id"`
+	TaskID       string                              `json:"taskId"`
 	Task         GetProjectInfo_Data_CurrentTaskTask `json:"task"`
 	LastAnswer   *GetProjectInfo_Data_LastAnswer     `json:"lastAnswer"`
 	TeamSettings *GetProjectInfo_Data_TeamSettings   `json:"teamSettings"`
-	Typename     string          `json:"__typename"`
+	Typename     string                              `json:"__typename"`
 }
 
 type GetProjectInfo_Data_LastAnswer struct {
@@ -56,11 +55,11 @@ type GetProjectInfo_Data_LastAnswer struct {
 }
 
 type GetProjectInfo_Data_CurrentTaskTask struct {
-	ID                              string                          `json:"id"`
-	AssignmentType                  string                          `json:"assignmentType"`
+	ID                              string                                              `json:"id"`
+	AssignmentType                  string                                              `json:"assignmentType"`
 	StudentTaskAdditionalAttributes GetProjectInfo_Data_StudentTaskAdditionalAttributes `json:"studentTaskAdditionalAttributes"`
-	CheckTypes                      []string                        `json:"checkTypes"`
-	Typename                        string                          `json:"__typename"`
+	CheckTypes                      []string                                            `json:"checkTypes"`
+	Typename                        string                                              `json:"__typename"`
 }
 
 type GetProjectInfo_Data_StudentTaskAdditionalAttributes struct {
@@ -80,25 +79,25 @@ type GetProjectInfo_Data_TeamSettings struct {
 }
 
 type GetProjectInfo_Data_StudyModule struct {
-	ID            string        `json:"id"`
-	Idea          string        `json:"idea"`
-	Duration      int64         `json:"duration"`
-	GoalPoint     int64         `json:"goalPoint"`
+	ID            string                            `json:"id"`
+	Idea          string                            `json:"idea"`
+	Duration      int64                             `json:"duration"`
+	GoalPoint     int64                             `json:"goalPoint"`
 	RetrySettings GetProjectInfo_Data_RetrySettings `json:"retrySettings"`
 	Levels        []GetProjectInfo_Data_Level       `json:"levels"`
-	Typename      string        `json:"__typename"`
+	Typename      string                            `json:"__typename"`
 }
 
 type GetProjectInfo_Data_Level struct {
-	ID           string        `json:"id"`
+	ID           string                            `json:"id"`
 	GoalElements []GetProjectInfo_Data_GoalElement `json:"goalElements"`
-	Typename     string        `json:"__typename"`
+	Typename     string                            `json:"__typename"`
 }
 
 type GetProjectInfo_Data_GoalElement struct {
-	ID       string        `json:"id"`
+	ID       string                            `json:"id"`
 	Tasks    []GetProjectInfo_Data_TaskElement `json:"tasks"`
-	Typename string        `json:"__typename"`
+	Typename string                            `json:"__typename"`
 }
 
 type GetProjectInfo_Data_TaskElement struct {
@@ -114,23 +113,23 @@ type GetProjectInfo_Data_RetrySettings struct {
 }
 
 type GetProjectInfo_Data_GetModuleCoverInformation struct {
-	IsOwnStudentTimeline bool              `json:"isOwnStudentTimeline"`
+	IsOwnStudentTimeline bool                                  `json:"isOwnStudentTimeline"`
 	SoftSkills           []GetProjectInfo_Data_SoftSkill       `json:"softSkills"`
 	Timeline             []GetProjectInfo_Data_Timeline        `json:"timeline"`
 	ProjectStatistics    GetProjectInfo_Data_ProjectStatistics `json:"projectStatistics"`
-	Typename             string            `json:"__typename"`
+	Typename             string                                `json:"__typename"`
 }
 
 type GetProjectInfo_Data_ProjectStatistics struct {
-	RegisteredStudents        int64                   `json:"registeredStudents"`
-	InProgressStudents        int64                   `json:"inProgressStudents"`
-	EvaluationStudents        int64                   `json:"evaluationStudents"`
-	FinishedStudents          int64                   `json:"finishedStudents"`
-	AcceptedStudents          int64                   `json:"acceptedStudents"`
-	FailedStudents            int64                   `json:"failedStudents"`
-	RetriedStudentsPercentage int64                   `json:"retriedStudentsPercentage"`
+	RegisteredStudents        int64                                       `json:"registeredStudents"`
+	InProgressStudents        int64                                       `json:"inProgressStudents"`
+	EvaluationStudents        int64                                       `json:"evaluationStudents"`
+	FinishedStudents          int64                                       `json:"finishedStudents"`
+	AcceptedStudents          int64                                       `json:"acceptedStudents"`
+	FailedStudents            int64                                       `json:"failedStudents"`
+	RetriedStudentsPercentage int64                                       `json:"retriedStudentsPercentage"`
 	GroupProjectStatistics    *GetProjectInfo_Data_GroupProjectStatistics `json:"groupProjectStatistics"`
-	Typename                  string                  `json:"__typename"`
+	Typename                  string                                      `json:"__typename"`
 }
 
 type GetProjectInfo_Data_GroupProjectStatistics struct {
@@ -154,12 +153,12 @@ type GetProjectInfo_Data_SoftSkill struct {
 }
 
 type GetProjectInfo_Data_Timeline struct {
-	Type     string      `json:"type"`
-	Status   string      `json:"status"`
-	Start    interface{} `json:"start"`
-	End      interface{} `json:"end"`
-	Children []GetProjectInfo_Data_Child     `json:"children"`
-	Typename string      `json:"__typename"`
+	Type     string                      `json:"type"`
+	Status   string                      `json:"status"`
+	Start    interface{}                 `json:"start"`
+	End      interface{}                 `json:"end"`
+	Children []GetProjectInfo_Data_Child `json:"children"`
+	Typename string                      `json:"__typename"`
 }
 
 type GetProjectInfo_Data_Child struct {
@@ -173,10 +172,10 @@ type GetProjectInfo_Data_Child struct {
 }
 
 type GetProjectInfo_Data_GetP2PChecksInfo struct {
-	CookiesCount         int64              `json:"cookiesCount"`
-	PeriodOfVerification int64              `json:"periodOfVerification"`
+	CookiesCount         int64                                  `json:"cookiesCount"`
+	PeriodOfVerification int64                                  `json:"periodOfVerification"`
 	ProjectReviewsInfo   GetProjectInfo_Data_ProjectReviewsInfo `json:"projectReviewsInfo"`
-	Typename             string             `json:"__typename"`
+	Typename             string                                 `json:"__typename"`
 }
 
 type GetProjectInfo_Data_ProjectReviewsInfo struct {
@@ -193,7 +192,6 @@ type GetProjectInfo_Data_GetStudentCodeReviewByGoalID struct {
 	CodeReviewsInfo interface{} `json:"codeReviewsInfo"`
 	Typename        string      `json:"__typename"`
 }
-
 
 func (ctx *RequestContext) GetProjectInfo(variables GetProjectInfo_Variables) (GetProjectInfo_Data, error) {
 	request := gql.NewQueryRequest[GetProjectInfo_Variables](

@@ -1,10 +1,9 @@
 package requests
 
-import "github.com/s21toolkit/s21client/gql"
+import "github.com/irefoxy/s21client/gql"
 
 type GetTournamentNotificationResults_Variables struct {
 }
-
 
 type GetTournamentNotificationResults_Data struct {
 	Student GetTournamentNotificationResults_Data_Student `json:"student"`
@@ -14,7 +13,6 @@ type GetTournamentNotificationResults_Data_Student struct {
 	GetTournamentResults []interface{} `json:"getTournamentResults"`
 	Typename             string        `json:"__typename"`
 }
-
 
 func (ctx *RequestContext) GetTournamentNotificationResults(variables GetTournamentNotificationResults_Variables) (GetTournamentNotificationResults_Data, error) {
 	request := gql.NewQueryRequest[GetTournamentNotificationResults_Variables](

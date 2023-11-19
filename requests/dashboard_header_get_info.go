@@ -1,10 +1,9 @@
 package requests
 
-import "github.com/s21toolkit/s21client/gql"
+import "github.com/irefoxy/s21client/gql"
 
 type DashboardHeaderGetInfo_Variables struct {
 }
-
 
 type DashboardHeaderGetInfo_Data struct {
 	User    DashboardHeaderGetInfo_Data_User    `json:"user"`
@@ -14,23 +13,23 @@ type DashboardHeaderGetInfo_Data struct {
 type DashboardHeaderGetInfo_Data_Student struct {
 	GetUserTournamentWidget DashboardHeaderGetInfo_Data_GetUserTournamentWidget `json:"getUserTournamentWidget"`
 	GetExperience           DashboardHeaderGetInfo_Data_GetExperience           `json:"getExperience"`
-	Typename                string                  `json:"__typename"`
+	Typename                string                                              `json:"__typename"`
 }
 
 type DashboardHeaderGetInfo_Data_GetExperience struct {
-	ID               string `json:"id"`
-	Value            int64  `json:"value"`
-	Level            DashboardHeaderGetInfo_Data_Level  `json:"level"`
-	CookiesCount     int64  `json:"cookiesCount"`
-	CoinsCount       int64  `json:"coinsCount"`
-	CodeReviewPoints int64  `json:"codeReviewPoints"`
-	Typename         string `json:"__typename"`
+	ID               string                            `json:"id"`
+	Value            int64                             `json:"value"`
+	Level            DashboardHeaderGetInfo_Data_Level `json:"level"`
+	CookiesCount     int64                             `json:"cookiesCount"`
+	CoinsCount       int64                             `json:"coinsCount"`
+	CodeReviewPoints int64                             `json:"codeReviewPoints"`
+	Typename         string                            `json:"__typename"`
 }
 
 type DashboardHeaderGetInfo_Data_Level struct {
-	ID       int64  `json:"id"`
-	Range    DashboardHeaderGetInfo_Data_Range  `json:"range"`
-	Typename string `json:"__typename"`
+	ID       int64                             `json:"id"`
+	Range    DashboardHeaderGetInfo_Data_Range `json:"range"`
+	Typename string                            `json:"__typename"`
 }
 
 type DashboardHeaderGetInfo_Data_Range struct {
@@ -44,13 +43,13 @@ type DashboardHeaderGetInfo_Data_Range struct {
 type DashboardHeaderGetInfo_Data_GetUserTournamentWidget struct {
 	CoalitionMember      DashboardHeaderGetInfo_Data_CoalitionMember      `json:"coalitionMember"`
 	LastTournamentResult DashboardHeaderGetInfo_Data_LastTournamentResult `json:"lastTournamentResult"`
-	Typename             string               `json:"__typename"`
+	Typename             string                                           `json:"__typename"`
 }
 
 type DashboardHeaderGetInfo_Data_CoalitionMember struct {
 	Coalition                  DashboardHeaderGetInfo_Data_Coalition                  `json:"coalition"`
 	CurrentTournamentPowerRank DashboardHeaderGetInfo_Data_CurrentTournamentPowerRank `json:"currentTournamentPowerRank"`
-	Typename                   string                     `json:"__typename"`
+	Typename                   string                                                 `json:"__typename"`
 }
 
 type DashboardHeaderGetInfo_Data_Coalition struct {
@@ -73,26 +72,26 @@ type DashboardHeaderGetInfo_Data_LastTournamentResult struct {
 
 type DashboardHeaderGetInfo_Data_User struct {
 	GetCurrentUser DashboardHeaderGetInfo_Data_GetCurrentUser `json:"getCurrentUser"`
-	Typename       string         `json:"__typename"`
+	Typename       string                                     `json:"__typename"`
 }
 
 type DashboardHeaderGetInfo_Data_GetCurrentUser struct {
-	ID                     string        `json:"id"`
-	Login                  string        `json:"login"`
-	AvatarURL              string        `json:"avatarUrl"`
-	FirstName              string        `json:"firstName"`
-	MiddleName             string        `json:"middleName"`
-	LastName               string        `json:"lastName"`
-	CurrentSchoolStudentID string        `json:"currentSchoolStudentId"`
+	ID                     string                                    `json:"id"`
+	Login                  string                                    `json:"login"`
+	AvatarURL              string                                    `json:"avatarUrl"`
+	FirstName              string                                    `json:"firstName"`
+	MiddleName             string                                    `json:"middleName"`
+	LastName               string                                    `json:"lastName"`
+	CurrentSchoolStudentID string                                    `json:"currentSchoolStudentId"`
 	StudentRoles           []DashboardHeaderGetInfo_Data_StudentRole `json:"studentRoles"`
-	Typename               string        `json:"__typename"`
+	Typename               string                                    `json:"__typename"`
 }
 
 type DashboardHeaderGetInfo_Data_StudentRole struct {
-	ID       string `json:"id"`
-	Status   string `json:"status"`
+	ID       string                             `json:"id"`
+	Status   string                             `json:"status"`
 	School   DashboardHeaderGetInfo_Data_School `json:"school"`
-	Typename string `json:"__typename"`
+	Typename string                             `json:"__typename"`
 }
 
 type DashboardHeaderGetInfo_Data_School struct {
@@ -100,7 +99,6 @@ type DashboardHeaderGetInfo_Data_School struct {
 	ShortName string `json:"shortName"`
 	Typename  string `json:"__typename"`
 }
-
 
 func (ctx *RequestContext) DashboardHeaderGetInfo(variables DashboardHeaderGetInfo_Variables) (DashboardHeaderGetInfo_Data, error) {
 	request := gql.NewQueryRequest[DashboardHeaderGetInfo_Variables](
