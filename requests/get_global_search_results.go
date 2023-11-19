@@ -11,7 +11,6 @@ type GetGlobalSearchResults_Variables struct {
 	} `json:"page"`
 }
 
-// Profile struct represents a student profile in the search results
 type Profile struct {
 	Login     string `json:"login"`
 	FirstName string `json:"firstName"`
@@ -22,29 +21,27 @@ type Profile struct {
 	Typename  string `json:"__typename"`
 }
 
-// School struct represents the school information of a student
 type School struct {
 	ShortName string `json:"shortName"`
 	Typename  string `json:"__typename"`
 }
 
-// ProfilesSearchResult represents the result of a profiles search
 type ProfilesSearchResult struct {
 	Count    int64     `json:"count"`
 	Profiles []Profile `json:"profiles"`
 	Typename string    `json:"__typename"`
 }
 
-// GlobalSearchResult represents the global search result for profiles, projects, and courses
 type GlobalSearchResult struct {
 	Profiles       ProfilesSearchResult `json:"profiles"`
-	Projects       interface{}          `json:"projects"`       // You can define specific structs for projects and courses if needed
-	StudentCourses interface{}          `json:"studentCourses"` // You can define specific structs for projects and courses if needed
+	Projects       interface{}          `json:"projects"`
+	StudentCourses interface{}          `json:"studentCourses"`
 	Typename       string               `json:"__typename"`
 }
 
 type GetGlobalSearchResults_Data struct {
 	GlobalSearch GlobalSearchResult `json:"globalSearch"`
+	Typename     string             `json:"__typename"`
 }
 
 func (ctx *RequestContext) GetGlobalSearchResults(variables GetGlobalSearchResults_Variables) (GetGlobalSearchResults_Data, error) {
@@ -84,6 +81,7 @@ func (ctx *RequestContext) GetGlobalSearchResults(variables GetGlobalSearchResul
                 }
                 __typename
             }
+			__typename
         }
         
         fragment GlobalSearchProjectsSearchResult on ProjectsSearchResult {
@@ -117,8 +115,7 @@ func (ctx *RequestContext) GetGlobalSearchResults(variables GetGlobalSearchResul
                 goalStatus
                 __typename
             }
-        }
-        `,
+        }`,
 		variables,
 	)
 
