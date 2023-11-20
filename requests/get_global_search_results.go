@@ -35,6 +35,11 @@ type ProfilesSearchResult struct {
 }
 
 type GlobalSearchResult struct {
+	SearchByText GlobalSearchByText `json:"searchByText"`
+	Typename     string             `json:"__typename"`
+}
+
+type GlobalSearchByText struct {
 	Profiles       ProfilesSearchResult `json:"profiles"`
 	Projects       interface{}          `json:"projects"`
 	StudentCourses interface{}          `json:"studentCourses"`
@@ -43,7 +48,6 @@ type GlobalSearchResult struct {
 
 type GetGlobalSearchResults_Data struct {
 	GlobalSearch GlobalSearchResult `json:"globalSearch"`
-	Typename     string             `json:"__typename"`
 }
 
 func (ctx *RequestContext) GetGlobalSearchResults(variables GetGlobalSearchResults_Variables) (GetGlobalSearchResults_Data, error) {
